@@ -30,6 +30,8 @@ android {
 
     buildFeatures {
         dataBinding = true
+        viewBinding = true
+        compose = true
     }
 
     kotlinOptions {
