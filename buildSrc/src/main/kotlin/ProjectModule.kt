@@ -3,5 +3,7 @@
  */
 enum class ProjectModule(val path: String) {
 
-    EXTENSION(":extension")
+    APP(":app"),
+    EXTENSION(":extension"),
+    NETWORK(":network"),
 }

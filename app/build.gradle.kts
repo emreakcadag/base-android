@@ -33,6 +33,7 @@ android {
 
 dependencies {
     implementation(project(ProjectModule.EXTENSION.path))
+    implementation(project(ProjectModule.NETWORK.path))
 
     implementation(Dependency.androidxCoreKtx)
     implementation(Dependency.androidxAppCompat)

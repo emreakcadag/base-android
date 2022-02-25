@@ -6,6 +6,7 @@ object AppConfig {
     const val applicationId = "com.emreakcadag.baseandroid"
     const val versionName = "1.0.0"
     const val versionCode = 1
+    const val projectName = "Base Android"
 
     const val compileSdk = 31
     const val targetSdk = 31

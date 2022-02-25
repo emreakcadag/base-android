@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Base Android"
 include(":app")
 include(":extension")
+include(":network")
