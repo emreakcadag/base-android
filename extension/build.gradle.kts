@@ -1,18 +1,17 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    compileSdk = AppConfig.compileSdk
+    compileSdk = 31
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
+        minSdk = 24
+        targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -22,7 +21,6 @@ android {
         }
     }
     compileOptions {
-        encoding = "UTF-8"
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -32,7 +30,6 @@ android {
 }
 
 dependencies {
-    implementation(project(ProjectModule.EXTENSION.path))
 
     implementation(Dependency.androidxCoreKtx)
     implementation(Dependency.androidxAppCompat)
