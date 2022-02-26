@@ -30,11 +30,5 @@ android {
 }
 
 dependencies {
-
-    implementation(Dependency.androidxCoreKtx)
-    implementation(Dependency.androidxAppCompat)
-    implementation(Dependency.androidMaterial)
-    testImplementation(Dependency.junit)
-    androidTestImplementation(Dependency.androidxTestExtJunit)
-    androidTestImplementation(Dependency.androidxTestEspressoCore)
+    implementation(project(ProjectModule.LIBS.path))
 }

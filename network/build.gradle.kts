@@ -30,11 +30,10 @@ android {
 }
 
 dependencies {
+    api(project(ProjectModule.LIBS.path))
 
-    implementation(Dependency.androidxCoreKtx)
-    implementation(Dependency.androidxAppCompat)
-    implementation(Dependency.androidMaterial)
-    testImplementation(Dependency.junit)
-    androidTestImplementation(Dependency.androidxTestExtJunit)
-    androidTestImplementation(Dependency.androidxTestEspressoCore)
+    implementation(Dependency.retrofit2)
+    implementation(Dependency.retrofit2GsonConverter)
+    implementation(Dependency.okhttp3)
+    implementation(Dependency.okhttp3LoggingInterceptor)
 }

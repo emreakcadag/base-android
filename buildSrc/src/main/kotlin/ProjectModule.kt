@@ -4,6 +4,7 @@
 enum class ProjectModule(val path: String) {
 
     APP(":app"),
+    LIBS(":libs"),
     EXTENSION(":extension"),
     NETWORK(":network"),
 }

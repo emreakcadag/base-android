@@ -42,13 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(project(ProjectModule.LIBS.path))
     implementation(project(ProjectModule.EXTENSION.path))
     implementation(project(ProjectModule.NETWORK.path))
-
-    implementation(Dependency.androidxCoreKtx)
-    implementation(Dependency.androidxAppCompat)
-    implementation(Dependency.androidMaterial)
-    testImplementation(Dependency.junit)
-    androidTestImplementation(Dependency.androidxTestExtJunit)
-    androidTestImplementation(Dependency.androidxTestEspressoCore)
 }
