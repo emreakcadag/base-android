@@ -20,17 +20,19 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    api(project(ProjectModule.LIBS.path))
+    implementation(project(ProjectModule.LIBS.path))
 
     implementation(Dependency.retrofit2)
     implementation(Dependency.retrofit2GsonConverter)

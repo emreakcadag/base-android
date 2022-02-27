@@ -1,7 +1,6 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("kotlin-parcelize")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -12,16 +11,7 @@ android {
         targetSdk = AppConfig.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += mapOf(
-                    "room.schemaLocation" to "$projectDir/schemas",
-                    "room.incremental" to "true",
-                    "room.expandProjection" to "true"
-                )
-            }
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -32,7 +22,6 @@ android {
     }
 
     compileOptions {
-        encoding = "UTF-8"
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -44,13 +33,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    lint.setDefaults()
 }
 
 dependencies {
     implementation(project(ProjectModule.LIBS.path))
-    implementation(project(ProjectModule.BASE.path))
-    implementation(project(ProjectModule.EXTENSION.path))
-    implementation(project(ProjectModule.NETWORK.path))
 }
