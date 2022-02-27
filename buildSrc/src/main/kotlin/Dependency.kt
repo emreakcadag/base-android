@@ -4,6 +4,8 @@
 object Dependency {
 
     const val androidxCoreKtx = "androidx.core:core-ktx:${Version.androidxCoreKtx}"
+    const val androidxActivityKtx = "androidx.activity:activity-ktx:${Version.androidxActivityKtx}"
+
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Version.androidxAppCompat}"
     const val androidMaterial = "com.google.android.material:material:${Version.androidMaterial}"
     const val junit = "junit:junit:${Version.junit}"
@@ -17,9 +19,11 @@ object Dependency {
 
     const val daggerHiltAndroid = "com.google.dagger:hilt-android:${Version.hilt}"
     const val daggerHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+    const val androidxHiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Version.androidxHiltLifecycleViewModel}"
+    const val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Version.androidxHiltCompiler}"
+
+
     const val daggerHiltCompiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
     const val daggerHiltAndroidTesting = "com.google.dagger:hilt-android-testing:${Version.hilt}"
     const val androidxHiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Version.androidxHiltNavigationCompose}"
-    const val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Version.androidxHiltCompiler}"
-    const val androidxHiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Version.androidxHiltLifecycleViewModel}"
 }

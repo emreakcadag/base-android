@@ -8,6 +8,8 @@ object Version {
     const val androidLibrary = "7.1.2"
 
     const val androidxCoreKtx = "1.7.0"
+    const val androidxActivityKtx = "1.4.0"
+
     const val androidxAppCompat = "1.4.1"
     const val androidMaterial = "1.5.0"
     const val junit = "4.13.2"

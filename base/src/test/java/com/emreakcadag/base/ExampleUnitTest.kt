@@ -1,4 +1,4 @@
-package com.example.base
+package com.emreakcadag.base
 
 import org.junit.Test
 

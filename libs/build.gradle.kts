@@ -37,15 +37,21 @@ kapt {
 }
 
 dependencies {
-    api(Dependency.androidxCoreKtx)
     api(Dependency.androidxAppCompat)
     api(Dependency.androidMaterial)
     testApi(Dependency.junit)
     androidTestApi(Dependency.androidxTestExtJunit)
     androidTestApi(Dependency.androidxTestEspressoCore)
 
+    // region Hilt
     api(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
+    // endregion
+
+    // region ktx
+    api(Dependency.androidxCoreKtx)
+    api(Dependency.androidxActivityKtx)
+    // endregion
 
     /*api(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltCompiler)

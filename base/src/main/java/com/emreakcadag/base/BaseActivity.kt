@@ -1,11 +1,11 @@
-package com.example.base
+package com.emreakcadag.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.example.base.databinding.BaseActivityBinding
+import com.emreakcadag.base.databinding.BaseActivityBinding
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -35,9 +35,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
         // must be called to inflate the layout first.
         binding
+
+        viewModel.onInit()
     }
 
     abstract val binding: ViewBinding
+
+    abstract val viewModel: BaseViewModel
 
     protected fun <VB : ViewBinding> viewBinding(binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = BindingProperty(binder)
 
