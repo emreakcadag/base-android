@@ -13,12 +13,13 @@ object Version {
     const val junit = "4.13.2"
     const val androidxTestExtJunit = "1.1.3"
     const val androidxTestEspressoCore = "3.4.0"
+
     const val retrofit2 = "2.9.0"
     const val okhttp3 = "5.0.0-alpha.2"
-    const val hilt = "2.40.5"
+
+
+    const val hilt = "2.41"
     const val androidxHiltNavigationCompose = "1.0.0-alpha03"
     const val androidxHiltCompiler = "1.0.0"
     const val androidxHiltLifecycleViewModel = "1.0.0-alpha03"
-
-    const val navigation = "2.4.1"
 }
