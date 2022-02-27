@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 android {
@@ -28,6 +30,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     api(Dependency.androidxCoreKtx)
     api(Dependency.androidxAppCompat)
@@ -35,6 +41,9 @@ dependencies {
     testApi(Dependency.junit)
     androidTestApi(Dependency.androidxTestExtJunit)
     androidTestApi(Dependency.androidxTestEspressoCore)
+
+    api(Dependency.daggerHiltAndroid)
+    kapt(Dependency.daggerHiltAndroidCompiler)
 
     /*api(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltCompiler)
