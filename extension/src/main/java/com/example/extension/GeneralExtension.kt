@@ -15,8 +15,9 @@ inline val <reified T> T.TAG: String get() = T::class.java.name
 inline fun <reified T> T.logDebug(message: Any?, logTag: String = "LogDebug: ${this.TAG}", isError: Boolean = false) {
     if (BuildConfig.DEBUG && message != null) {
         try {
-            if (isError) Log.d(logTag, "$message") else Log.d(logTag, "$message")
+            if (isError) Log.e(logTag, "$message") else Log.d(logTag, "$message")
         } catch (e: Exception) {
+            Log.e(logTag, "${e.message}")
         }
     }
 }
