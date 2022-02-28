@@ -14,6 +14,18 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    productFlavors {
+        flavorDimensions.add(AppConfig.defaultDimension)
+        create(AppConfig.productDev) {
+            dimension = AppConfig.defaultDimension
+            buildConfigField("String", Environment.BASE_URL, Environment.Dev.baseUrl)
+        }
+        create(AppConfig.productProd) {
+            dimension = AppConfig.defaultDimension
+            buildConfigField("String", Environment.BASE_URL, Environment.Prod.baseUrl)
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false

@@ -24,7 +24,24 @@ android {
         }
     }
 
+    productFlavors {
+        flavorDimensions.add(AppConfig.defaultDimension)
+        create(AppConfig.productDev) {
+            dimension = AppConfig.defaultDimension
+
+            applicationIdSuffix = AppConfig.devApplicationIdSuffix
+            versionNameSuffix = AppConfig.devApplicationIdSuffix
+        }
+        create(AppConfig.productProd) {
+            dimension = AppConfig.defaultDimension
+        }
+    }
+
     buildTypes {
+        debug {
+            applicationIdSuffix = AppConfig.debugApplicationIdSuffix
+        }
+
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
