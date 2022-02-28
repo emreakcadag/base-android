@@ -1,4 +1,4 @@
-package com.example.network.interceptor
+package com.emreakcadag.network.interceptor
 
 import okhttp3.Interceptor
 import javax.inject.Singleton

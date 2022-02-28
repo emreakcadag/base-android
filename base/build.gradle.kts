@@ -37,4 +37,5 @@ android {
 
 dependencies {
     implementation(project(ProjectModule.LIBS.path))
+    implementation(project(ProjectModule.EXTENSION.path))
 }

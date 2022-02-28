@@ -1,7 +1,6 @@
-package com.example.network
+package com.emreakcadag.network
 
-import com.emreakcadag.network.BuildConfig
-import com.example.network.interceptor.HeaderInterceptor
+import com.emreakcadag.network.interceptor.HeaderInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
