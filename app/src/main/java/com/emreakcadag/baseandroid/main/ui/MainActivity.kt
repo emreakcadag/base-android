@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid
+package com.emreakcadag.baseandroid.main.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -10,7 +10,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     override val binding by viewBinding(ActivityMainBinding::inflate)
-    override val viewModel by viewModels<MainViewModel>()
+
+    override val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

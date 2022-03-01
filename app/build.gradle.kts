@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("kotlin-parcelize")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -12,16 +14,6 @@ android {
         targetSdk = AppConfig.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += mapOf(
-                    "room.schemaLocation" to "$projectDir/schemas",
-                    "room.incremental" to "true",
-                    "room.expandProjection" to "true"
-                )
-            }
-        }
     }
 
     productFlavors {
@@ -65,9 +57,16 @@ android {
     lint.setDefaults()
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     implementation(project(ProjectModule.LIBS.path))
     implementation(project(ProjectModule.BASE.path))
     implementation(project(ProjectModule.EXTENSION.path))
     implementation(project(ProjectModule.NETWORK.path))
+
+    implementation(Dependency.daggerHiltAndroid)
+    kapt(Dependency.daggerHiltAndroidCompiler)
 }
