@@ -1,15 +1,20 @@
 package com.emreakcadag.network
 
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 
 /**
  * Created by Emre Akçadağ on 28.02.2022
  */
-abstract class BaseFlowUseCase<in Param, out Result>(private val dispatcher: CoroutineDispatcher) {
+abstract class BaseFlowUseCase<in Param, out Result>(
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+) {
 
-    suspend operator fun invoke(param: Param) = execute(param)
+    protected abstract fun execute(params: Param): Flow<ApiResult<Result>>
+
+    operator fun invoke(param: Param) = execute(param)
         .onStart {
             emit(ApiResult.Loading)
         }
@@ -20,6 +25,4 @@ abstract class BaseFlowUseCase<in Param, out Result>(private val dispatcher: Cor
             emit(ApiResult.Error(throwable))
         }
         .flowOn(dispatcher)
-
-    protected abstract fun execute(params: Param): Flow<ApiResult<Result>>
 }

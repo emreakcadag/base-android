@@ -1,13 +1,13 @@
 package com.emreakcadag.network.interceptor
 
 import okhttp3.Interceptor
+import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
  * Created by Emre Akçadağ on 28.02.2022
  */
-@Singleton
-class HeaderInterceptor : Interceptor {
+class HeaderInterceptor @Inject constructor() : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain) =
         chain.proceed(chain.request().newBuilder().also {

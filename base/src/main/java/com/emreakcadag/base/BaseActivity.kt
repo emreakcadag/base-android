@@ -2,6 +2,7 @@ package com.emreakcadag.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
@@ -37,15 +38,20 @@ abstract class BaseActivity : AppCompatActivity() {
         binding
 
         viewModel.onInit()
+        viewModel.getProgressBarLiveData().observe(this, ::resetProgressBar)
     }
 
     abstract val binding: ViewBinding
 
     abstract val viewModel: BaseViewModel
 
-    protected fun <VB : ViewBinding> viewBinding(binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = BindingProperty(binder)
+    private fun resetProgressBar(loading: Boolean?) {
+        rootBinding.progressBar.visibility = if (loading == true) View.VISIBLE else View.GONE
+    }
 
-    protected inner class BindingProperty<VB : ViewBinding>(private val binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) : ReadOnlyProperty<BaseActivity, VB> {
+    protected fun <VB : ViewBinding> viewBinding(binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = ViewBindingProperty(binder)
+
+    protected inner class ViewBindingProperty<VB : ViewBinding>(private val binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) : ReadOnlyProperty<BaseActivity, VB> {
 
         private var binding: VB? = null
 

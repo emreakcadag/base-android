@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -12,6 +14,18 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+    }
+
+    productFlavors {
+        flavorDimensions.add(AppConfig.defaultDimension)
+
+        create(AppConfig.productDev) {
+            dimension = AppConfig.defaultDimension
+        }
+
+        create(AppConfig.productProd) {
+            dimension = AppConfig.defaultDimension
+        }
     }
 
     buildTypes {
@@ -35,7 +49,15 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     implementation(project(ProjectModule.LIBS.path))
+    implementation(project(ProjectModule.NETWORK.path))
     implementation(project(ProjectModule.EXTENSION.path))
+
+    implementation(Dependency.daggerHiltAndroid)
+    kapt(Dependency.daggerHiltAndroidCompiler)
 }

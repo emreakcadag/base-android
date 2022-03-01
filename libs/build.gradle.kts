@@ -15,6 +15,18 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    productFlavors {
+        flavorDimensions.add(AppConfig.defaultDimension)
+
+        create(AppConfig.productDev) {
+            dimension = AppConfig.defaultDimension
+        }
+
+        create(AppConfig.productProd) {
+            dimension = AppConfig.defaultDimension
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -44,7 +56,7 @@ dependencies {
     androidTestApi(Dependency.androidxTestEspressoCore)
 
     // region Hilt
-    api(Dependency.daggerHiltAndroid)
+    implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
     // endregion
 
@@ -52,18 +64,4 @@ dependencies {
     api(Dependency.androidxCoreKtx)
     api(Dependency.androidxActivityKtx)
     // endregion
-
-    /*api(Dependency.daggerHiltAndroid)
-    kapt(Dependency.daggerHiltCompiler)
-
-    annotationProcessor(Dependency.daggerHiltCompiler)
-
-    androidTestApi(Dependency.daggerHiltAndroidTesting)
-    androidTestAnnotationProcessor(Dependency.daggerHiltCompiler)
-    testApi(Dependency.daggerHiltAndroidTesting)
-    testAnnotationProcessor(Dependency.daggerHiltCompiler)
-    api(Dependency.androidxHiltNavigationCompose)
-    kapt(Dependency.androidxHiltCompiler)
-    kapt(Dependency.daggerHiltAndroidCompiler)
-    implementation(Dependency.androidxHiltLifecycleViewModel)*/
 }
