@@ -15,8 +15,10 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     override fun onInit() {
-        getMainDataUseCase.invoke(Unit).withProgressBar().subscribe {
-            Log.d("EMREEE", "ehueheuhue")
-        }
+        getMainDataUseCase.execute().withProgressBar().onSuccess {
+            Log.e("EMREE", it.toString())
+        }.onError {
+            Log.e("EMREE", it.toString())
+        }.subscribe()
     }
 }

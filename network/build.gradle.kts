@@ -51,6 +51,7 @@ kapt {
 
 dependencies {
     implementation(project(ProjectModule.LIBS.path))
+    implementation(project(ProjectModule.EXTENSION.path))
 
     api(Dependency.retrofit2)
     api(Dependency.retrofit2GsonConverter)

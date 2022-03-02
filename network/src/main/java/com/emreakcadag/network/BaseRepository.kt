@@ -3,12 +3,12 @@ package com.emreakcadag.network
 import kotlinx.coroutines.flow.flow
 
 /**
- * Created by Emre Akçadağ on 1.03.2022
+ * Created by Emre Akçadağ on 01.03.2022
  */
 open class BaseRepository {
 
-    protected fun <T> fetch(apiCall: suspend () -> ApiResult<T>) = flow {
+    protected fun <T> fetch(apiCall: suspend () -> T?) = flow {
         val response = apiCall()
-        emit(response)
+        emit(ApiResult.Success(response))
     }
 }

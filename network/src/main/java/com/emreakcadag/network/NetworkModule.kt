@@ -1,6 +1,5 @@
 package com.emreakcadag.network
 
-import com.emreakcadag.network.interceptor.HeaderInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -28,10 +27,10 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        headerInterceptor: HeaderInterceptor,
+        //headerInterceptor: HeaderInterceptor,
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(headerInterceptor)
+        //.addInterceptor(headerInterceptor)
         .build()
 
     @Provides
@@ -45,9 +44,4 @@ object NetworkModule {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
         .build()
-
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
 }

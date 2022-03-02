@@ -23,25 +23,19 @@ abstract class BaseViewModel : ViewModel() {
 
     fun getProgressBarLiveData() = loading
 
-    protected fun <T> Flow<T>.subscribe() = launchIn(viewModelScope)
+    protected fun <T> Flow<ApiResult<T?>>.subscribe() = launchIn(viewModelScope)
 
-    protected fun <T> Flow<ApiResult<T>>.withProgressBar() = onEach {
+    protected fun <T> Flow<ApiResult<T?>>.withProgressBar() = onEach {
         resetProgressBarStatus(it is ApiResult.Loading)
     }
 
-    protected fun <T> Flow<ApiResult<T>>.subscribe(
-        onSuccess: (T?) -> Unit
-    ) = onSuccess {
-        onSuccess.invoke(it)
-    }
-
-    inline fun <T> Flow<ApiResult<T>>.onSuccess(crossinline action: suspend (T?) -> Unit) = onEach {
+    inline fun <T> Flow<ApiResult<T?>>.onSuccess(crossinline action: suspend (T?) -> Unit) = onEach {
         if (it is ApiResult.Success) {
             action(it.data)
         }
     }
 
-    inline fun <T> Flow<ApiResult<T>>.onError(crossinline action: suspend (Throwable) -> Unit) = onEach {
+    inline fun <T> Flow<ApiResult<T?>>.onError(crossinline action: suspend (Throwable) -> Unit) = onEach {
         if (it is ApiResult.Error) {
             action(it.throwable)
         }
