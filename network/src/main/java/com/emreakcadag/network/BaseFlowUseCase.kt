@@ -1,6 +1,6 @@
 package com.emreakcadag.network
 
-import com.example.extension.logDebug
+import com.emreakcadag.extension.logDebug
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
