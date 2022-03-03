@@ -1,5 +1,6 @@
 package com.emreakcadag.baseandroid.main.data
 
+import com.emreakcadag.network.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -7,4 +8,4 @@ import com.google.gson.annotations.SerializedName
  */
 data class MainResponse(
     @SerializedName("emre") val emre: String?
-)
+) : BaseResponse()

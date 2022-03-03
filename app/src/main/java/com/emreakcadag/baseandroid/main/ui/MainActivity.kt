@@ -3,6 +3,7 @@ package com.emreakcadag.baseandroid.main.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.emreakcadag.base.BaseActivity
+import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
