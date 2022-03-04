@@ -50,13 +50,14 @@ kapt {
 }
 
 dependencies {
-    implementation(project(ProjectModule.LIBS.path))
-    implementation(project(ProjectModule.EXTENSION.path))
+
+    implementation(Dependency.androidxCoreKtx)
+    implementation(Dependency.androidxActivityKtx)
 
     api(Dependency.retrofit2)
     api(Dependency.retrofit2GsonConverter)
-    api(Dependency.okhttp3)
-    api(Dependency.okhttp3LoggingInterceptor)
+    implementation(Dependency.okhttp3)
+    implementation(Dependency.okhttp3LoggingInterceptor)
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)

@@ -1,6 +1,6 @@
 package com.emreakcadag.base
 
-import com.emreakcadag.extension.logDebug
+import com.emreakcadag.base.extension.logDebug
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -1,7 +1,7 @@
-package com.emreakcadag.extension
+package com.emreakcadag.base.extension
 
 import android.util.Log
-import com.emreakcadag.libs.BuildConfig
+import com.emreakcadag.base.BuildConfig
 
 /**
  * Created by Emre Akçadağ on 28.02.2022

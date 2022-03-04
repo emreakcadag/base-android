@@ -1,6 +1,6 @@
 package com.emreakcadag.network
 
-import com.emreakcadag.extension.logDebug
+import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -26,7 +26,9 @@ abstract class BaseFlowUseCase<in Param, Result>(
         }
         .catch { throwable ->
             emit(ApiResult.Error(throwable))
-            logDebug(throwable.message, isError = true)
+            if (BuildConfig.DEBUG) {
+                Log.e(BaseFlowUseCase::class.java.name, "${throwable.message}")
+            }
         }
         .flowOn(dispatcher)
 }

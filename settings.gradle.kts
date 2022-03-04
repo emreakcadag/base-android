@@ -14,7 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Base Android"
 include(":app")
-include(":extension")
 include(":network")
-include(":libs")
 include(":base")

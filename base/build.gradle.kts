@@ -54,9 +54,16 @@ kapt {
 }
 
 dependencies {
-    implementation(project(ProjectModule.LIBS.path))
     implementation(project(ProjectModule.NETWORK.path))
-    implementation(project(ProjectModule.EXTENSION.path))
+
+    implementation(Dependency.androidxAppCompat)
+    implementation(Dependency.androidMaterial)
+    testImplementation(Dependency.junit)
+    androidTestImplementation(Dependency.androidxTestExtJunit)
+    androidTestImplementation(Dependency.androidxTestEspressoCore)
+
+    implementation(Dependency.androidxCoreKtx)
+    implementation(Dependency.androidxActivityKtx)
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
