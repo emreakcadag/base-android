@@ -2,7 +2,6 @@ package com.emreakcadag.baseandroid.main.domain
 
 import com.emreakcadag.baseandroid.main.data.MainRepository
 import com.emreakcadag.baseandroid.main.data.MainResponse
-import com.emreakcadag.network.ApiResult
 import com.emreakcadag.network.BaseFlowUseCase
 import javax.inject.Inject
 
