@@ -1,11 +1,11 @@
 package com.emreakcadag.base
 
 import android.os.Bundle
-import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.emreakcadag.base.databinding.BaseActivityBinding
+import com.emreakcadag.base.extension.visibility
 
 /**
  * Created by Emre Akçadağ on 27.02.2022
@@ -26,17 +26,21 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private lateinit var rootBinding: BaseActivityBinding
 
-    lateinit var container: FrameLayout
+    lateinit var activityContainer: FrameLayout
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootBinding = BaseActivityBinding.inflate(layoutInflater)
         setContentView(rootBinding.root)
-        container = rootBinding.content
+        activityContainer = rootBinding.activityContainer
 
         // must be called to inflate the layout first.
         binding
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         viewModel.onInit()
         viewModel.getProgressBarLiveData().observe(this, ::resetProgressBar)
@@ -47,6 +51,11 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract val viewModel: BaseViewModel
 
     private fun resetProgressBar(loading: Boolean?) {
-        rootBinding.progressBar.visibility = if (loading == true) View.VISIBLE else View.GONE
+        rootBinding.progressBar.visibility(loading)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        rootBinding.progressBar.visibility(false)
     }
 }

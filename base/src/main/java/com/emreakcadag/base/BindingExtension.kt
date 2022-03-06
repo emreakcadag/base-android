@@ -21,7 +21,7 @@ class ViewBindingProperty<VB : ViewBinding>(private val binder: ((LayoutInflater
     }
 
     private fun createBinding(activity: BaseActivity): VB {
-        binding = binder?.invoke(activity.layoutInflater, activity.container, true)
+        binding = binder?.invoke(activity.layoutInflater, activity.activityContainer, true)
             ?: throw IllegalStateException("You didn't set a layout for this activity, yet you try to access that :)")
         return binding as VB
     }
