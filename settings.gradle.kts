@@ -16,3 +16,4 @@ rootProject.name = "Base Android"
 include(":app")
 include(":data")
 include(":base")
+include(":res")
