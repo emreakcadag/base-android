@@ -5,5 +5,5 @@ enum class ProjectModule(val path: String) {
 
     APP(":app"),
     BASE(":base"),
-    NETWORK(":network"),
+    DATA(":data"),
 }

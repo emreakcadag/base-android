@@ -1,8 +1,7 @@
-package com.emreakcadag.network.interceptor
+package com.emreakcadag.data.network.interceptor
 
 import okhttp3.Interceptor
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Created by Emre Akçadağ on 28.02.2022

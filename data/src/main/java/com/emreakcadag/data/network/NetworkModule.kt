@@ -1,5 +1,6 @@
-package com.emreakcadag.network
+package com.emreakcadag.data.network
 
+import com.emreakcadag.data.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

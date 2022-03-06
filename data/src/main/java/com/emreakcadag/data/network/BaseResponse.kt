@@ -1,4 +1,4 @@
-package com.emreakcadag.network
+package com.emreakcadag.data.network
 
 import com.google.gson.annotations.SerializedName
 

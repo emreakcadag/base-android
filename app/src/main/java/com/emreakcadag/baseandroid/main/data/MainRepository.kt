@@ -1,6 +1,6 @@
 package com.emreakcadag.baseandroid.main.data
 
-import com.emreakcadag.network.BaseRepository
+import com.emreakcadag.data.network.BaseRepository
 import javax.inject.Inject
 
 /**

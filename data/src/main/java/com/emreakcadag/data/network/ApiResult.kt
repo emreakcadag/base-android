@@ -1,4 +1,4 @@
-package com.emreakcadag.network
+package com.emreakcadag.data.network
 
 /**
  * Created by Emre Akçadağ on 28.02.2022

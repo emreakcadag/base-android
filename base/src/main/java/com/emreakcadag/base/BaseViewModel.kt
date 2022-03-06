@@ -3,7 +3,7 @@ package com.emreakcadag.base
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.emreakcadag.network.ApiResult
+import com.emreakcadag.data.network.ApiResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
