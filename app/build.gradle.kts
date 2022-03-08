@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -53,8 +54,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    lint.setDefaults()
 }
 
 kapt {

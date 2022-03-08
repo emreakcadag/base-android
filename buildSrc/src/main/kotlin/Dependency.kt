@@ -2,6 +2,8 @@
  * Created by Emre Akçadağ on 25.02.2022
  */
 object Dependency {
+    const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Version.hilt}"
+    const val googlePlayServices = "com.google.gms:google-services:${Version.googleServices}"
 
     const val androidxCoreKtx = "androidx.core:core-ktx:${Version.androidxCoreKtx}"
     const val androidxActivityKtx = "androidx.activity:activity-ktx:${Version.androidxActivityKtx}"
@@ -25,4 +27,9 @@ object Dependency {
 
     const val daggerHiltCompiler = "com.google.dagger:hilt-compiler:${Version.hilt}"
     const val daggerHiltAndroidTesting = "com.google.dagger:hilt-android-testing:${Version.hilt}"
+
+    const val firebaseBom = "com.google.firebase:firebase-bom:${Version.firebaseBom}"
+    const val firebaseConfig = "com.google.firebase:firebase-config-ktx"
+    const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
+    const val firebaseCommonKtx = "com.google.firebase:firebase-common-ktx"
 }

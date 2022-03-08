@@ -1,6 +1,5 @@
 package com.emreakcadag.data.network
 
-import com.emreakcadag.data.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -40,9 +39,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL)
+    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit.Builder = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
-        .build()
 }

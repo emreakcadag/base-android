@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deafaultMap>
+    <entry>
+        <key>baseUrl</key>
+        <value>https://api.twitter.com/</value>
+    </entry>
+</deafaultMap>

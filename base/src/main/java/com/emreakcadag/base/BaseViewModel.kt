@@ -17,7 +17,7 @@ abstract class BaseViewModel : ViewModel() {
 
     abstract fun onInit()
 
-    private fun resetProgressBarStatus(loading: Boolean? = true) {
+    private fun resetProgressBarStatus(loading: Boolean? = false) {
         this.loading.value = loading == true
     }
 

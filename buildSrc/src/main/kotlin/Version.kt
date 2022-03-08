@@ -6,6 +6,7 @@ object Version {
     const val kotlin = "1.6.10"
     const val androidApplication = "7.1.2"
     const val androidLibrary = "7.1.2"
+    const val googleServices = "4.3.10"
 
     const val androidxCoreKtx = "1.7.0"
     const val androidxActivityKtx = "1.4.0"
@@ -19,9 +20,9 @@ object Version {
     const val retrofit2 = "2.9.0"
     const val okhttp3 = "5.0.0-alpha.2"
 
-
     const val hilt = "2.41"
-    const val androidxHiltNavigationCompose = "1.0.0-alpha03"
     const val androidxHiltCompiler = "1.0.0"
     const val androidxHiltLifecycleViewModel = "1.0.0-alpha03"
+
+    const val firebaseBom = "29.1.0"
 }

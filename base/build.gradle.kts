@@ -67,4 +67,9 @@ dependencies {
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
+
+    implementation(platform(Dependency.firebaseBom))
+    implementation(Dependency.firebaseConfig)
+    implementation(Dependency.firebaseAnalyticsKtx)
+    api(Dependency.firebaseCommonKtx)
 }

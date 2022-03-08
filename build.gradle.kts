@@ -12,7 +12,8 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Version.hilt}")
+        classpath(Dependency.hiltAndroidGradlePlugin)
+        classpath(Dependency.googlePlayServices)
     }
 }
 

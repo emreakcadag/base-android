@@ -1,0 +1,51 @@
+package com.emreakcadag.base.firebase.remoteconfig
+
+import com.emreakcadag.base.R
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
+
+/**
+ * Created by Emre Akçadağ on 08.03.2022
+ */
+class RemoteConfigImpl : RemoteConfig {
+
+    private var instance: FirebaseRemoteConfig? = null
+
+    override
+    fun initialize(onInitializeSuccess: ((Boolean) -> Unit)?) {
+        instance = Firebase.remoteConfig
+        instance?.setConfigSettingsAsync(remoteConfigSettings { minimumFetchIntervalInSeconds = 3600 })
+
+        instance?.setDefaultsAsync(R.xml.remote_config_defaults)
+
+        instance?.fetchAndActivate()?.addOnSuccessListener {
+            onInitializeSuccess?.invoke(true)
+        }?.addOnFailureListener {
+            onInitializeSuccess?.invoke(false)
+        }?.addOnCanceledListener {
+            onInitializeSuccess?.invoke(false)
+        }
+    }
+
+    override
+    fun getString(key: String?): String? = key?.run {
+        instance?.getString(this)
+    }
+
+    override
+    fun getInt(key: String?): Long? = key?.run {
+        instance?.getLong(this)
+    }
+
+    override
+    fun getDouble(key: String?): Double? = key?.run {
+        instance?.getDouble(this)
+    }
+
+    override
+    fun getBoolean(key: String?): Boolean? = key?.run {
+        instance?.getBoolean(this)
+    }
+}
