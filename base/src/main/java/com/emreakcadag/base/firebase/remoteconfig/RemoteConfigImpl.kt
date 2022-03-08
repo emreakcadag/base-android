@@ -1,6 +1,5 @@
 package com.emreakcadag.base.firebase.remoteconfig
 
-import com.emreakcadag.base.R
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -16,9 +15,7 @@ class RemoteConfigImpl : RemoteConfig {
     override
     fun initialize(onInitializeSuccess: ((Boolean) -> Unit)?) {
         instance = Firebase.remoteConfig
-        instance?.setConfigSettingsAsync(remoteConfigSettings { minimumFetchIntervalInSeconds = 3600 })
-
-        instance?.setDefaultsAsync(R.xml.remote_config_defaults)
+        instance?.setConfigSettingsAsync(remoteConfigSettings { minimumFetchIntervalInSeconds = 1 })
 
         instance?.fetchAndActivate()?.addOnSuccessListener {
             onInitializeSuccess?.invoke(true)

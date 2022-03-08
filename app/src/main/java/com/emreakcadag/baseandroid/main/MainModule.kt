@@ -22,6 +22,5 @@ object MainModule {
     fun provideMainApiService(
         retrofitBuilder: Retrofit.Builder,
         remoteConfig: RemoteConfig,
-    ) = retrofitBuilder
-        .setBaseUrl<MainApiService>(remoteConfig)
+    ) = retrofitBuilder.setBaseUrl<MainApiService>(remoteConfig)
 }
