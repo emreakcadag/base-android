@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
 
     override fun onInit() {
         getMainDataUseCase.execute().withProgressBar().onSuccess {
-            Log.e("EMREE", remoteConfig.getString("emre")!!)
+            Log.e("EMREE", "${remoteConfig.getString("emre")}")
         }.onError {
             Log.e("EMREE", it.toString())
         }.subscribe()

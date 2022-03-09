@@ -9,7 +9,6 @@ import kotlin.reflect.KProperty
 /**
  * Created by Emre Akçadağ on 03.03.2022
  */
-
 fun <VB : ViewBinding> BaseActivity.viewBinding(binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = ViewBindingProperty(binder)
 
 class ViewBindingProperty<VB : ViewBinding>(private val binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) : ReadOnlyProperty<BaseActivity, VB> {

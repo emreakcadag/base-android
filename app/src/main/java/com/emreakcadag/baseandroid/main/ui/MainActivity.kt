@@ -10,6 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
+    // todo emreakcadag use db too.
     override val binding by viewBinding(ActivityMainBinding::inflate)
 
     override val viewModel: MainViewModel by viewModels()
