@@ -43,8 +43,8 @@ android {
 
     compileOptions {
         encoding = "UTF-8"
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Version.sourceCompatibility
+        targetCompatibility = Version.targetCompatibility
     }
 
     buildFeatures {
@@ -52,7 +52,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Version.jvmTarget
     }
 }
 

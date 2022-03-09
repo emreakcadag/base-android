@@ -1,7 +1,7 @@
 package com.emreakcadag.base.extension
 
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
-import com.emreakcadag.data.BuildConfig
+import com.emreakcadag.network.BuildConfig
 import retrofit2.Retrofit
 
 /**

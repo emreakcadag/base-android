@@ -1,7 +1,7 @@
-package com.emreakcadag.data.network
+package com.emreakcadag.network
 
 import android.util.Log
-import com.emreakcadag.data.BuildConfig
+import com.emreakcadag.network.BuildConfig
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

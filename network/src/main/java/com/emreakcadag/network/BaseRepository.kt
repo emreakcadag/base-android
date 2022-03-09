@@ -1,4 +1,4 @@
-package com.emreakcadag.data.network
+package com.emreakcadag.network
 
 import kotlinx.coroutines.flow.flow
 

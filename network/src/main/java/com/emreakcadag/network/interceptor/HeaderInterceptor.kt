@@ -1,4 +1,4 @@
-package com.emreakcadag.data.network.interceptor
+package com.emreakcadag.network.interceptor
 
 import okhttp3.Interceptor
 import javax.inject.Inject

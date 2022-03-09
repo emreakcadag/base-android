@@ -1,9 +1,15 @@
+import org.gradle.api.JavaVersion
+
 /**
  * Created by Emre Akçadağ on 25.02.2022
  */
 object Version {
 
     const val kotlin = "1.6.10"
+    const val jvmTarget = "11"
+    val sourceCompatibility = JavaVersion.VERSION_11
+    val targetCompatibility = JavaVersion.VERSION_11
+
     const val androidApplication = "7.1.2"
     const val androidLibrary = "7.1.2"
     const val googleServices = "4.3.10"

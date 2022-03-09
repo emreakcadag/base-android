@@ -3,7 +3,7 @@ package com.emreakcadag.base
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.emreakcadag.data.network.ApiResult
+import com.emreakcadag.network.ApiResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -23,20 +23,20 @@ abstract class BaseViewModel : ViewModel() {
 
     fun getProgressBarLiveData() = loading
 
-    protected fun <T> Flow<ApiResult<T?>>.subscribe() = launchIn(viewModelScope)
+    protected fun <T> Flow<com.emreakcadag.network.ApiResult<T?>>.subscribe() = launchIn(viewModelScope)
 
-    protected fun <T> Flow<ApiResult<T?>>.withProgressBar() = onEach {
-        resetProgressBarStatus(it is ApiResult.Loading)
+    protected fun <T> Flow<com.emreakcadag.network.ApiResult<T?>>.withProgressBar() = onEach {
+        resetProgressBarStatus(it is com.emreakcadag.network.ApiResult.Loading)
     }
 
-    inline fun <T> Flow<ApiResult<T?>>.onSuccess(crossinline action: suspend (T?) -> Unit) = onEach {
-        if (it is ApiResult.Success) {
+    inline fun <T> Flow<com.emreakcadag.network.ApiResult<T?>>.onSuccess(crossinline action: suspend (T?) -> Unit) = onEach {
+        if (it is com.emreakcadag.network.ApiResult.Success) {
             action(it.data)
         }
     }
 
-    inline fun <T> Flow<ApiResult<T?>>.onError(crossinline action: suspend (Throwable) -> Unit) = onEach {
-        if (it is ApiResult.Error) {
+    inline fun <T> Flow<com.emreakcadag.network.ApiResult<T?>>.onError(crossinline action: suspend (Throwable) -> Unit) = onEach {
+        if (it is com.emreakcadag.network.ApiResult.Error) {
             action(it.throwable)
         }
     }

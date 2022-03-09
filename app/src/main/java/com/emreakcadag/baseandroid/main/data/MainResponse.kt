@@ -1,6 +1,6 @@
 package com.emreakcadag.baseandroid.main.data
 
-import com.emreakcadag.data.network.BaseResponse
+import com.emreakcadag.network.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 /**
