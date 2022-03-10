@@ -1,5 +1,6 @@
-package com.emreakcadag.baseandroid.main.data
+package com.emreakcadag.data.apiservice
 
+import com.emreakcadag.data.response.MainResponse
 import retrofit2.http.GET
 
 /**

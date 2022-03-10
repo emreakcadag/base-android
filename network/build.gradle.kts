@@ -50,12 +50,13 @@ kapt {
 }
 
 dependencies {
+    implementation(project(ProjectModule.COMMON.path))
 
     implementation(Dependency.androidxCoreKtx)
     implementation(Dependency.androidxActivityKtx)
 
     api(Dependency.retrofit2)
-    api(Dependency.retrofit2GsonConverter)
+    implementation(Dependency.retrofit2GsonConverter)
     implementation(Dependency.okhttp3)
     implementation(Dependency.okhttp3LoggingInterceptor)
 

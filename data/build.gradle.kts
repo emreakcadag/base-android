@@ -20,11 +20,10 @@ android {
         flavorDimensions.add(AppConfig.defaultDimension)
         create(AppConfig.productDev) {
             dimension = AppConfig.defaultDimension
-            buildConfigField("String", Environment.BASE_URL, Environment.Dev.baseUrl)
         }
+
         create(AppConfig.productProd) {
             dimension = AppConfig.defaultDimension
-            buildConfigField("String", Environment.BASE_URL, Environment.Prod.baseUrl)
         }
     }
 
@@ -50,14 +49,12 @@ kapt {
 }
 
 dependencies {
+    implementation(project(ProjectModule.COMMON.path))
+
+    api(Dependency.retrofit2GsonConverter)
 
     implementation(Dependency.androidxCoreKtx)
     implementation(Dependency.androidxActivityKtx)
-
-    api(Dependency.retrofit2)
-    api(Dependency.retrofit2GsonConverter)
-    implementation(Dependency.okhttp3)
-    implementation(Dependency.okhttp3LoggingInterceptor)
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)

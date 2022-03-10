@@ -1,5 +1,6 @@
-package com.emreakcadag.network
+package com.emreakcadag.data.base
 
+import com.emreakcadag.common.ApiResult
 import kotlinx.coroutines.flow.flow
 
 /**

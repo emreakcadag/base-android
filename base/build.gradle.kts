@@ -42,6 +42,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     kotlinOptions {
@@ -54,7 +55,7 @@ kapt {
 }
 
 dependencies {
-    api(project(ProjectModule.NETWORK.path))
+    implementation(project(ProjectModule.COMMON.path))
 
     api(Dependency.androidxAppCompat)
     api(Dependency.androidMaterial)

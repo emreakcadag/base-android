@@ -1,8 +1,8 @@
 package com.emreakcadag.baseandroid.main
 
-import com.emreakcadag.base.extension.setBaseUrl
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
-import com.emreakcadag.baseandroid.main.data.MainApiService
+import com.emreakcadag.baseandroid.extension.setBaseUrlAndCreateRetrofit
+import com.emreakcadag.data.apiservice.MainApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +22,6 @@ object MainModule {
     fun provideMainApiService(
         retrofitBuilder: Retrofit.Builder,
         remoteConfig: RemoteConfig,
-    ) = retrofitBuilder.setBaseUrl<MainApiService>(remoteConfig)
+    ) = retrofitBuilder
+        .setBaseUrlAndCreateRetrofit<MainApiService>(remoteConfig)
 }

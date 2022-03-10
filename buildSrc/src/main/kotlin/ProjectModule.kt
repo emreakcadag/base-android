@@ -8,4 +8,6 @@ enum class ProjectModule(val path: String) {
     DATA(":data"),
     RES(":res"),
     NETWORK(":network"),
+    COMMON(":common"),
+    DOMAIN(":domain"),
 }

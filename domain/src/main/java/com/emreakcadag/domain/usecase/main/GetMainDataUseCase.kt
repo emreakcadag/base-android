@@ -1,8 +1,8 @@
-package com.emreakcadag.baseandroid.main.domain
+package com.emreakcadag.domain.usecase.main
 
-import com.emreakcadag.baseandroid.main.data.MainRepository
-import com.emreakcadag.baseandroid.main.data.MainResponse
-import com.emreakcadag.network.BaseFlowUseCase
+import com.emreakcadag.data.repository.MainRepository
+import com.emreakcadag.data.response.MainResponse
+import com.emreakcadag.domain.usecase.base.BaseFlowUseCase
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,7 @@
 package com.emreakcadag.base.firebase.remoteconfig
 
+import com.emreakcadag.base.Constant.Companion.BLANK
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 
@@ -10,39 +10,38 @@ import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
  */
 class RemoteConfigImpl : RemoteConfig {
 
-    private var instance: FirebaseRemoteConfig? = null
+    private val instance by lazy { Firebase.remoteConfig }
 
     override
     fun initialize(onInitializeSuccess: ((Boolean) -> Unit)?) {
-        instance = Firebase.remoteConfig
-        instance?.setConfigSettingsAsync(remoteConfigSettings { minimumFetchIntervalInSeconds = 1 })
+        instance.setConfigSettingsAsync(remoteConfigSettings { minimumFetchIntervalInSeconds = 1 })
 
-        instance?.fetchAndActivate()?.addOnSuccessListener {
+        instance.fetchAndActivate().addOnSuccessListener {
             onInitializeSuccess?.invoke(true)
-        }?.addOnFailureListener {
+        }.addOnFailureListener {
             onInitializeSuccess?.invoke(false)
-        }?.addOnCanceledListener {
+        }.addOnCanceledListener {
             onInitializeSuccess?.invoke(false)
         }
     }
 
     override
-    fun getString(key: String?): String? = key?.run {
-        instance?.getString(this)
-    }
+    fun getString(key: String?): String = key?.run {
+        instance.getString(this)
+    } ?: BLANK
 
     override
     fun getInt(key: String?): Long? = key?.run {
-        instance?.getLong(this)
+        instance.getLong(this)
     }
 
     override
     fun getDouble(key: String?): Double? = key?.run {
-        instance?.getDouble(this)
+        instance.getDouble(this)
     }
 
     override
     fun getBoolean(key: String?): Boolean? = key?.run {
-        instance?.getBoolean(this)
+        instance.getBoolean(this)
     }
 }

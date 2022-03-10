@@ -1,7 +1,8 @@
-package com.emreakcadag.network
+package com.emreakcadag.domain.usecase.base
 
 import android.util.Log
-import com.emreakcadag.network.BuildConfig
+import com.emreakcadag.common.ApiResult
+import com.emreakcadag.common.BuildConfig
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

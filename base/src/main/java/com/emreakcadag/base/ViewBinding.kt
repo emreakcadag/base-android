@@ -2,26 +2,35 @@ package com.emreakcadag.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
 import androidx.viewbinding.ViewBinding
-import kotlin.properties.ReadOnlyProperty
-import kotlin.reflect.KProperty
 
 /**
  * Created by Emre Akçadağ on 03.03.2022
+ *
+ * @return binding object.
+ *
+ * if Activity xml created between <layout> </layout> tags, binding object provides by ViewDataBinding
+ * Otherwise, ViewBinding will be using.
  */
-fun <VB : ViewBinding> BaseActivity.viewBinding(binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = ViewBindingProperty(binder)
+inline fun <reified VB : ViewBinding> BaseActivity.viewBinding(noinline binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) = object : Lazy<VB> {
+    private var cached: VB? = null
 
-class ViewBindingProperty<VB : ViewBinding>(private val binder: ((LayoutInflater, ViewGroup, Boolean) -> VB)? = null) : ReadOnlyProperty<BaseActivity, VB> {
+    override val value: VB
+        get() = cached ?: createBinding(this@viewBinding)
 
-    private var binding: VB? = null
-
-    override fun getValue(thisRef: BaseActivity, property: KProperty<*>): VB {
-        return binding ?: createBinding(thisRef)
-    }
+    override
+    fun isInitialized() = cached != null
 
     private fun createBinding(activity: BaseActivity): VB {
-        binding = binder?.invoke(activity.layoutInflater, activity.activityContainer, true)
-            ?: throw IllegalStateException("You didn't set a layout for this activity, yet you try to access that :)")
+        cached = binder?.invoke(activity.layoutInflater, activity.activityContainer, true)?.also {
+            if (it is ViewDataBinding) {
+                it.setVariable(BR.viewModel, activity.viewModel)
+                it.lifecycleOwner = activity
+            }
+        }
+            ?: throw IllegalStateException("You didn't set a valid layout for this activity, yet you try to access that :)")
+
         return binding as VB
     }
 }

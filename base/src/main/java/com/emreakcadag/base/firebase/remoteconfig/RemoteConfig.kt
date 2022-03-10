@@ -7,7 +7,7 @@ interface RemoteConfig {
 
     fun initialize(onInitializeSuccess: ((Boolean) -> Unit)? = null)
 
-    fun getString(key: String?): String?
+    fun getString(key: String?): String
 
     fun getInt(key: String?): Long?
 
