@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.main.ui
+package com.emreakcadag.baseandroid.feature.main.ui
 
 import android.util.Log
 import androidx.databinding.ObservableField
@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
     override fun onInit() {
         getMainDataUseCase.execute().withProgressBar().onSuccess {
             textObservable.set(it?.emre)
-            Log.e("EMREE", "${remoteConfig.getString("emre")}")
+            Log.e("EMREE", remoteConfig.getString("emre"))
         }.onError {
             Log.e("EMREE", it.toString())
         }.subscribe()

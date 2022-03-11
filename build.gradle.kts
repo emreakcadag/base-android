@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application") version Version.androidApplication apply false
     id("com.android.library") version Version.androidLibrary apply false
-    id("org.jetbrains.kotlin.android") version Version.kotlin apply false
+    id("org.jetbrains.kotlin.android") version "1.6.10" apply false
     id("org.jetbrains.kotlin.jvm") version Version.kotlin apply false
 }
 
@@ -14,6 +14,7 @@ buildscript {
     dependencies {
         classpath(Dependency.hiltAndroidGradlePlugin)
         classpath(Dependency.googlePlayServices)
+        classpath(Dependency.safeArgsGradlePlugin)
     }
 }
 

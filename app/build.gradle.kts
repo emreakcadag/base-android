@@ -5,6 +5,7 @@ plugins {
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -68,6 +69,7 @@ dependencies {
 
     implementation(Dependency.androidxCoreKtx)
     implementation(Dependency.androidxActivityKtx)
+    implementation(Dependency.androidxFragmentKtx)
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)

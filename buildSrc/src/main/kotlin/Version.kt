@@ -16,6 +16,7 @@ object Version {
 
     const val androidxCoreKtx = "1.7.0"
     const val androidxActivityKtx = "1.4.0"
+    const val androidxFragmentKtx = "1.4.1"
 
     const val androidxAppCompat = "1.4.1"
     const val androidMaterial = "1.5.0"
@@ -31,4 +32,6 @@ object Version {
     const val androidxHiltLifecycleViewModel = "1.0.0-alpha03"
 
     const val firebaseBom = "29.1.0"
+
+    const val navigation = "2.4.1"
 }

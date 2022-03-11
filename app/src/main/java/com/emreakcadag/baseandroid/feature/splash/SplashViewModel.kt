@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.splash
+package com.emreakcadag.baseandroid.feature.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

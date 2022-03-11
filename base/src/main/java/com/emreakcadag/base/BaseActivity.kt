@@ -33,6 +33,10 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var activityContainer: FrameLayout
         private set
 
+    abstract val binding: ViewBinding
+
+    abstract val viewModel: BaseViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootBinding = BaseActivityBinding.inflate(layoutInflater).also {
@@ -50,10 +54,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
         viewModel.onInit()
     }
-
-    abstract val binding: ViewBinding
-
-    abstract val viewModel: BaseViewModel
 
     override fun onDestroy() {
         super.onDestroy()

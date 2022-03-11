@@ -73,4 +73,7 @@ dependencies {
     implementation(Dependency.firebaseConfig)
     implementation(Dependency.firebaseAnalyticsKtx)
     api(Dependency.firebaseCommonKtx)
+
+    api(Dependency.navigationFragmentKtx)
+    api(Dependency.navigationUiKtx)
 }

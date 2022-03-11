@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.main
+package com.emreakcadag.baseandroid.feature.main
 
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
 import com.emreakcadag.baseandroid.extension.setBaseUrlAndCreateRetrofit

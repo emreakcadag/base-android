@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseAndroid">
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".feature.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.ui.MainActivity" />
+        <activity android:name=".feature.main.ui.MainActivity" />
     </application>
 
 </manifest>

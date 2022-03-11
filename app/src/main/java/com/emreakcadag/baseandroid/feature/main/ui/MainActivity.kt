@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.main.ui
+package com.emreakcadag.baseandroid.feature.main.ui
 
 import androidx.activity.viewModels
 import com.emreakcadag.base.BaseActivity

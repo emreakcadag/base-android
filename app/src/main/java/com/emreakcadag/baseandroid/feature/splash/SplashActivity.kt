@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.splash
+package com.emreakcadag.baseandroid.feature.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import com.emreakcadag.base.BaseActivity
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.databinding.ActivitySplashBinding
-import com.emreakcadag.baseandroid.main.ui.MainActivity
+import com.emreakcadag.baseandroid.feature.main.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
