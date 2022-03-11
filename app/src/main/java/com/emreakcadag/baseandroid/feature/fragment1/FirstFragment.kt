@@ -18,5 +18,7 @@ class FirstFragment : BaseFragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.navigationButton.setOnClickListener { navigate(R.id.action_firstFragment_to_secondFragment) }
     }
 }
