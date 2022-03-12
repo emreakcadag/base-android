@@ -12,5 +12,5 @@ class GetMainDataUseCase @Inject constructor(
     private val mainRepository: MainRepository,
 ) : BaseFlowUseCase<Unit?, MainResponse?>() {
 
-    override fun onExecute(param: Unit?) = mainRepository.getMainData()
+    override fun onExecute(params: Unit?) = mainRepository.getMainData()
 }

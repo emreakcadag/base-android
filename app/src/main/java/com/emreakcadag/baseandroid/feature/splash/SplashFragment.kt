@@ -20,7 +20,8 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.navigateOnStartUp {
-            navigate(R.id.action_splashFragment_to_tweetListFragment)
+//            navigate(R.id.action_splashFragment_to_tweetListFragment)
+            navigate(R.id.action_splashFragment_to_loginFragment)
         }
     }
 }
