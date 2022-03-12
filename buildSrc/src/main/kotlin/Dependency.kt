@@ -25,7 +25,6 @@ object Dependency {
     const val daggerHiltAndroid = "com.google.dagger:hilt-android:${Version.hilt}"
     const val daggerHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
 
-
     const val firebaseBom = "com.google.firebase:firebase-bom:${Version.firebaseBom}"
     const val firebaseConfig = "com.google.firebase:firebase-config-ktx"
     const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
