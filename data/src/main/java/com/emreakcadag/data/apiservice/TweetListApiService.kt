@@ -14,6 +14,7 @@ interface TweetListApiService {
         @Query("query") query: String?,
         @Query("next_token") nextToken: String?,
         @Query("expansions") expansions: String? = "author_id",
-        @Query("user.fields") userFields: String? = "profile_image_url"
+        @Query("user.fields") userFields: String? = "profile_image_url",
+        @Query("max_results") maxResult: Int? = 25,
     ): TweetListResponse
 }

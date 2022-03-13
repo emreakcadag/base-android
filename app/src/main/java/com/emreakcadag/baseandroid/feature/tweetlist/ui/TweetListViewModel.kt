@@ -5,8 +5,10 @@ import com.emreakcadag.base.BaseViewModel
 import com.emreakcadag.baseandroid.feature.tweetlist.ui.list.TweetListAdapter
 import com.emreakcadag.data.entity.tweetlist.TweetListViewEntity
 import com.emreakcadag.data.entity.tweetlist.TweetListViewEntity.Companion.fromResponse
+import com.emreakcadag.data.entity.tweetlist.TweetViewEntity
 import com.emreakcadag.domain.usecase.tweetlist.GetTweetListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import okhttp3.internal.toImmutableList
 import javax.inject.Inject
 
 /**
@@ -19,19 +21,33 @@ class TweetListViewModel @Inject constructor(
 
     val tweetListAdapterObservable = ObservableField<TweetListAdapter?>()
 
+    private val tweetListAdapter = TweetListAdapter().also {
+        tweetListAdapterObservable.set(it)
+    }
+
+    private var nextToken: String? = null
+    private val tweetList: ArrayList<TweetViewEntity> = arrayListOf()
+
     override fun onInit() {
+        getTweetListData()
+    }
+
+    fun getTweetListData() {
         getTweetListUseCase.execute(
             GetTweetListUseCase.Params(
                 "elonmusk",
-                null
+                nextToken,
             )
-        ).withProgressBar()
-            .onSuccess {
-                setTweetListAdapter(it.fromResponse())
-            }.subscribe()
+        ).withProgressBar().onSuccess {
+            it.fromResponse()?.let { viewEntity ->
+                setTweetListAdapter(viewEntity)
+                nextToken = viewEntity.nextToken
+            }
+        }.subscribe()
     }
 
     private fun setTweetListAdapter(tweetListViewEntity: TweetListViewEntity?) {
-        tweetListAdapterObservable.set(TweetListAdapter(tweetListViewEntity?.tweetList))
+        tweetListViewEntity?.tweetList?.let { tweetList.addAll(it) }
+        tweetListAdapter.submitList(tweetList.toImmutableList())
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.emreakcadag.base.BaseFragment
+import com.emreakcadag.base.extension.setOnPagingListener
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.R
 import com.emreakcadag.baseandroid.databinding.FragmentTweetListBinding
@@ -18,5 +19,7 @@ class TweetListFragment : BaseFragment(R.layout.fragment_tweet_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.rvTweetList.setOnPagingListener { viewModel.getTweetListData() }
     }
 }

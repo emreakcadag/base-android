@@ -1,4 +1,4 @@
-package com.emreakcadag.base
+package com.emreakcadag.base.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

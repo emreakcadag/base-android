@@ -25,8 +25,9 @@ fun View?.visibility(value: Any?) = this?.run {
 
 @BindingAdapter("app:setImageUrl")
 fun ImageView?.setImageUrl(imageUrl: String?) = this?.run {
-    Glide.with(this.context)
+    Glide.with(this)
         .load(imageUrl)
+        .dontAnimate()
         .circleCrop()
         .into(this)
 }
