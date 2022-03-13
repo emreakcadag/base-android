@@ -76,4 +76,7 @@ dependencies {
 
     api(Dependency.navigationFragmentKtx)
     api(Dependency.navigationUiKtx)
+
+    api(Dependency.glide)
+    kapt(Dependency.glideCompiler)
 }

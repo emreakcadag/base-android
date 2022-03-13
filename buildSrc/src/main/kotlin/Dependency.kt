@@ -35,4 +35,7 @@ object Dependency {
 
     const val androidxDataStore = "androidx.datastore:datastore:${Version.dataStore}"
     const val androidxDataStorePreferences = "androidx.datastore:datastore-preferences:${Version.dataStore}"
+
+    const val glide = "com.github.bumptech.glide:glide:${Version.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Version.glide}"
 }

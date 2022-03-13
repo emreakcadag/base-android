@@ -1,7 +1,9 @@
 package com.emreakcadag.base.extension
 
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.emreakcadag.base.Constant
 
 /**
@@ -19,4 +21,12 @@ fun View?.visibility(value: Any?) = this?.run {
             else -> View.VISIBLE
         }
     }
+}
+
+@BindingAdapter("app:setImageUrl")
+fun ImageView?.setImageUrl(imageUrl: String?) = this?.run {
+    Glide.with(this.context)
+        .load(imageUrl)
+        .circleCrop()
+        .into(this)
 }
