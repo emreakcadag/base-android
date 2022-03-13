@@ -19,10 +19,17 @@ class LoginViewModel @Inject constructor(
     private val dataStoreSetValueUseCase: DataStoreSetValueUseCase<String>,
 ) : BaseViewModel() {
 
-    val textObservable = ObservableField<String?>()
+    val usernameObservable = ObservableField("X70aslvBC6F2Z2LUISlU3XjFi")
+    val passwordObservable = ObservableField("8lfrGMkONqnTFSRsnBzcnTgc5aPvZP9O4zxndEMKUXFjh03KkD")
 
-    override fun onInit() {
-        textObservable.set("Login Fragment")
+    override fun onInit() {}
+
+    fun onUsernameChanged(text: String?) {
+        usernameObservable.set(text)
+    }
+
+    fun onPasswordChanged(text: String?) {
+        passwordObservable.set(text)
     }
 
     fun login(onNavigate: (Int) -> Unit) {
@@ -40,5 +47,9 @@ class LoginViewModel @Inject constructor(
         dataStoreSetValueUseCase.execute(DataStoreSetValueUseCase.Params(BaseDataStore.PreferenceKey.token, accessToken)).subscribe()
     }
 
-    private fun getLoginCredentials() = Credentials.basic("X70aslvBC6F2Z2LUISlU3XjFi", "8lfrGMkONqnTFSRsnBzcnTgc5aPvZP9O4zxndEMKUXFjh03KkD", Charsets.UTF_8)
+    private fun getLoginCredentials() = Credentials.basic(
+        usernameObservable.get().toString(),
+        passwordObservable.get().toString(),
+        Charsets.UTF_8
+    )
 }

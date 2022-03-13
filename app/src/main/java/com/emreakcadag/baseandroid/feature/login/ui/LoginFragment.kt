@@ -19,6 +19,6 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.login(::navigate)
+        binding.btnLogin.setOnClickListener { viewModel.login(::navigate) }
     }
 }
