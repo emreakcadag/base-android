@@ -11,9 +11,12 @@ import kotlinx.coroutines.flow.onEach
 /**
  * Created by Emre Akçadağ on 27.02.2022
  */
+
+private val loadingVisibilityObservable = ObservableBoolean()
+
 abstract class BaseViewModel : ViewModel() {
 
-    val loadingObservable = ObservableBoolean()
+    val loadingObservable = loadingVisibilityObservable
 
     abstract fun onInit()
 
