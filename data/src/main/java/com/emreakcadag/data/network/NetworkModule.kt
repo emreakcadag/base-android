@@ -1,5 +1,6 @@
-package com.emreakcadag.network
+package com.emreakcadag.data.network
 
+import com.emreakcadag.data.network.interceptor.HeaderInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -27,10 +28,10 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        //headerInterceptor: HeaderInterceptor,
+        headerInterceptor: HeaderInterceptor,
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        //.addInterceptor(headerInterceptor)
+        .addInterceptor(headerInterceptor)
         .build()
 
     @Provides

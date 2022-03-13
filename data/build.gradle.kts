@@ -61,4 +61,9 @@ dependencies {
 
     api(Dependency.androidxDataStore)
     api(Dependency.androidxDataStorePreferences)
+
+    api(Dependency.retrofit2)
+    implementation(Dependency.retrofit2GsonConverter)
+    implementation(Dependency.okhttp3)
+    implementation(Dependency.okhttp3LoggingInterceptor)
 }
