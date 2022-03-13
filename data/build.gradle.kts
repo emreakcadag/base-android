@@ -58,4 +58,7 @@ dependencies {
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
+
+    api(Dependency.androidxDataStore)
+    api(Dependency.androidxDataStorePreferences)
 }

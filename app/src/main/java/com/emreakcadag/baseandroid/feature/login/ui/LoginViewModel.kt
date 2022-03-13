@@ -2,6 +2,8 @@ package com.emreakcadag.baseandroid.feature.login.ui
 
 import androidx.databinding.ObservableField
 import com.emreakcadag.base.BaseViewModel
+import com.emreakcadag.data.datastore.BaseDataStore
+import com.emreakcadag.domain.usecase.common.DataStoreSetValueUseCase
 import com.emreakcadag.domain.usecase.login.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import okhttp3.Credentials
@@ -13,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
+    private val dataStoreSetValueUseCase: DataStoreSetValueUseCase<String>,
 ) : BaseViewModel() {
 
     val textObservable = ObservableField<String?>()
@@ -25,9 +28,13 @@ class LoginViewModel @Inject constructor(
     private fun login() {
         loginUseCase.execute(
             LoginUseCase.Params(getLoginCredentials())
-        ).withProgressBar().onSuccess {
-            textObservable.set(it?.accessToken)
-        }.subscribe()
+        ).withProgressBar()
+            .onSuccess { saveAccessToken(it?.accessToken) }
+            .subscribe()
+    }
+
+    private fun saveAccessToken(accessToken: String?) {
+        dataStoreSetValueUseCase.execute(DataStoreSetValueUseCase.Params(BaseDataStore.PreferenceKey.token, accessToken)).subscribe()
     }
 
     private fun getLoginCredentials() = Credentials.basic("X70aslvBC6F2Z2LUISlU3XjFi", "8lfrGMkONqnTFSRsnBzcnTgc5aPvZP9O4zxndEMKUXFjh03KkD", Charsets.UTF_8)

@@ -32,4 +32,7 @@ object Dependency {
 
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
     const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
+
+    const val androidxDataStore = "androidx.datastore:datastore:${Version.dataStore}"
+    const val androidxDataStorePreferences = "androidx.datastore:datastore-preferences:${Version.dataStore}"
 }

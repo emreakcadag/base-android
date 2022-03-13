@@ -34,4 +34,6 @@ object Version {
     const val firebaseBom = "29.1.0"
 
     const val navigation = "2.4.1"
+
+    const val dataStore = "1.0.0"
 }
