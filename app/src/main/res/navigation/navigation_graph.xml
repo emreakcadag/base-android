@@ -5,7 +5,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.emreakcadag.baseandroid.feature.splash.SplashFragment"
+        android:name="com.emreakcadag.baseandroid.feature.splash.ui.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"

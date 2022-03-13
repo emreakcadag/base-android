@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.feature.splash
+package com.emreakcadag.baseandroid.feature.splash.ui
 
 import android.os.Bundle
 import android.view.View
@@ -19,9 +19,6 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.navigateOnStartUp {
-//            navigate(R.id.action_splashFragment_to_tweetListFragment)
-            navigate(R.id.action_splashFragment_to_loginFragment)
-        }
+        viewModel.navigateOnStartUp(::navigate)
     }
 }

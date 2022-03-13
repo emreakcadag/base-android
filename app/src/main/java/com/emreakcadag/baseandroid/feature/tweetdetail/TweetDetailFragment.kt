@@ -7,7 +7,7 @@ import com.emreakcadag.base.BaseFragment
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.R
 import com.emreakcadag.baseandroid.databinding.FragmentTweetDetailBinding
-import com.emreakcadag.baseandroid.feature.splash.SplashViewModel
+import com.emreakcadag.baseandroid.feature.splash.ui.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

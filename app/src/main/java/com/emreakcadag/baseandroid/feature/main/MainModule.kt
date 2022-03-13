@@ -1,7 +1,5 @@
 package com.emreakcadag.baseandroid.feature.main
 
-import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
-import com.emreakcadag.baseandroid.extension.setBaseUrlAndCreateRetrofit
 import com.emreakcadag.data.apiservice.MainApiService
 import dagger.Module
 import dagger.Provides
@@ -21,7 +19,8 @@ object MainModule {
     @ViewModelScoped
     fun provideMainApiService(
         retrofitBuilder: Retrofit.Builder,
-        remoteConfig: RemoteConfig,
     ) = retrofitBuilder
-        .setBaseUrlAndCreateRetrofit<MainApiService>(remoteConfig)
+        .baseUrl("https://exapmle.com/")
+        .build()
+        .create(MainApiService::class.java)
 }

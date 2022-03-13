@@ -16,7 +16,7 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object LocaleModule {
+object DataBaseModule {
 
     private const val DATA_STORE_APP = "app"
 
