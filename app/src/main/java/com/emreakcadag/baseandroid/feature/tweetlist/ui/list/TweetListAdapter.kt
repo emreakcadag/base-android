@@ -11,12 +11,16 @@ import com.emreakcadag.data.entity.tweetlist.TweetViewEntity
 /**
  * Created by Emre Akçadağ on 13.03.2022
  */
-class TweetListAdapter : ListAdapter<TweetViewEntity, BaseViewHolder>(TweetDiffCallback) {
+class TweetListAdapter(private val onItemClick: ((TweetViewEntity) -> Unit)? = null) : ListAdapter<TweetViewEntity, BaseViewHolder>(TweetDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = BaseViewHolder.create(parent, TweetItemBinding::inflate)
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.binding.setVariable(BR.viewModel, getItem(position))
+        with(holder.binding) {
+            val item = getItem(position)
+            setVariable(BR.viewModel, item)
+            setVariable(BR.onItemClick, onItemClick)
+        }
     }
 
     object TweetDiffCallback : DiffUtil.ItemCallback<TweetViewEntity>() {

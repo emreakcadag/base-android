@@ -1,8 +1,8 @@
 package com.emreakcadag.baseandroid.feature.login.ui
 
 import androidx.databinding.ObservableField
+import androidx.navigation.NavDirections
 import com.emreakcadag.base.BaseViewModel
-import com.emreakcadag.baseandroid.R
 import com.emreakcadag.data.datastore.BaseDataStore
 import com.emreakcadag.domain.usecase.common.DataStoreSetValueUseCase
 import com.emreakcadag.domain.usecase.login.LoginUseCase
@@ -32,13 +32,13 @@ class LoginViewModel @Inject constructor(
         passwordObservable.set(text)
     }
 
-    fun login(onNavigate: (Int) -> Unit) {
+    fun login(onNavigate: (NavDirections) -> Unit) {
         loginUseCase.execute(
             LoginUseCase.Params(getLoginCredentials())
         ).withProgressBar()
             .onSuccess {
                 saveAccessToken(it?.accessToken)
-                onNavigate(R.id.action_loginFragment_to_tweetListFragment)
+                onNavigate(LoginFragmentDirections.actionLoginFragmentToTweetListFragment())
             }
             .subscribe()
     }

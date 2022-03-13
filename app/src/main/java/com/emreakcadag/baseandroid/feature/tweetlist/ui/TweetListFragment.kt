@@ -21,5 +21,13 @@ class TweetListFragment : BaseFragment(R.layout.fragment_tweet_list) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvTweetList.setOnPagingListener { viewModel.getTweetListData() }
+
+        observeLiveData()
+    }
+
+    private fun observeLiveData() {
+        viewModel.onItemClickLiveData.observe(viewLifecycleOwner) {
+            navigate(TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment())
+        }
     }
 }

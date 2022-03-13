@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.feature.tweetdetail
+package com.emreakcadag.baseandroid.feature.tweetdetail.ui
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,6 @@ import com.emreakcadag.base.BaseFragment
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.R
 import com.emreakcadag.baseandroid.databinding.FragmentTweetDetailBinding
-import com.emreakcadag.baseandroid.feature.splash.ui.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +14,7 @@ class TweetDetailFragment : BaseFragment(R.layout.fragment_tweet_detail) {
 
     override val binding by viewBinding(FragmentTweetDetailBinding::bind)
 
-    override val viewModel: SplashViewModel by viewModels()
+    override val viewModel: TweetDetailViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -3,11 +3,12 @@ package com.emreakcadag.base
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
-import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.emreakcadag.base.extension.tryCatch
 
@@ -20,16 +21,19 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : Fragment(layoutRes) {
 
     abstract val viewModel: BaseViewModel
 
+    private var navigationController: NavController? = null
+
     @CallSuper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding
         viewModel.onInit()
+        navigationController = findNavController()
     }
 
-    protected fun navigate(@IdRes resId: Int, args: Bundle? = null, navOptions: NavOptions? = null) {
+    protected fun navigate(direction: NavDirections, navOptions: NavOptions? = null) {
         tryCatch({
-            Navigation.findNavController(binding.root).navigate(resId, args = args, navOptions = navOptions)
+            navigationController?.navigate(direction, navOptions = navOptions)
         })
     }
 }
