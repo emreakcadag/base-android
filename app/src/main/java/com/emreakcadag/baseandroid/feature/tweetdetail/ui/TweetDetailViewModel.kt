@@ -2,6 +2,8 @@ package com.emreakcadag.baseandroid.feature.tweetdetail.ui
 
 import androidx.databinding.ObservableField
 import com.emreakcadag.base.BaseViewModel
+import com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity
+import com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity.Companion.fromResponse
 import com.emreakcadag.domain.usecase.tweetdetail.GetTweetDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -14,17 +16,15 @@ class TweetDetailViewModel @Inject constructor(
     private val getTweetDetailUseCase: GetTweetDetailUseCase,
 ) : BaseViewModel() {
 
-    val textObservable = ObservableField<String?>()
+    val tweetDetailObservable = ObservableField<TweetDetailViewEntity>()
 
-    override fun onInit() {
-        getTweetDetail()
-    }
+    override fun onInit() {}
 
-    private fun getTweetDetail() {
-        getTweetDetailUseCase.execute("1503034939067047942")
-            .withProgressBar()
+    fun getTweetDetail(tweetDetailViewEntity: TweetDetailViewEntity?) {
+        tweetDetailObservable.set(tweetDetailViewEntity)
+        getTweetDetailUseCase.execute()
             .onSuccess {
-
+                tweetDetailObservable.set(it.fromResponse())
             }.subscribe()
     }
 }

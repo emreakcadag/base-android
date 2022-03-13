@@ -8,6 +8,7 @@ import com.emreakcadag.base.extension.setOnPagingListener
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.R
 import com.emreakcadag.baseandroid.databinding.FragmentTweetListBinding
+import com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +28,10 @@ class TweetListFragment : BaseFragment(R.layout.fragment_tweet_list) {
 
     private fun observeLiveData() {
         viewModel.onItemClickLiveData.observe(viewLifecycleOwner) {
-            navigate(TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment())
+            with(it) {
+                val viewEntity = TweetDetailViewEntity(id, text, authorId, username, name, profileImageUrl)
+                navigate(com.emreakcadag.baseandroid.feature.tweetlist.ui.TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment(viewEntity))
+            }
         }
     }
 }

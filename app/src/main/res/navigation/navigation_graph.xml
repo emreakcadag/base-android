@@ -39,5 +39,11 @@
     <fragment
         android:id="@+id/tweetDetailFragment"
         android:name="com.emreakcadag.baseandroid.feature.tweetdetail.ui.TweetDetailFragment"
-        android:label="TweetDetailFragment" />
+        android:label="TweetDetailFragment">
+        <argument
+            android:name="tweetDetailViewEntity"
+            android:defaultValue="@null"
+            app:argType="com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity"
+            app:nullable="true" />
+    </fragment>
 </navigation>
