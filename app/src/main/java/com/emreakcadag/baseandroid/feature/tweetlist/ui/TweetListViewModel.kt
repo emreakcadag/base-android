@@ -17,13 +17,12 @@ class TweetListViewModel @Inject constructor(
     private val getTweetListUseCase: GetTweetListUseCase,
 ) : BaseViewModel() {
 
-    val textObservable = ObservableField<String?>()
     val tweetListAdapterObservable = ObservableField<TweetListAdapter?>()
 
     override fun onInit() {
         getTweetListUseCase.execute(
             GetTweetListUseCase.Params(
-                "from:elonmusk",
+                "elonmusk",
                 null
             )
         ).withProgressBar()

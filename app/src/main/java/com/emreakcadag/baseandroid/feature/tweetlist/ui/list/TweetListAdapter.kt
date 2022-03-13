@@ -2,6 +2,8 @@ package com.emreakcadag.baseandroid.feature.tweetlist.ui.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.emreakcadag.base.BaseViewHolder
+import com.emreakcadag.baseandroid.BR
 import com.emreakcadag.baseandroid.databinding.TweetItemBinding
 import com.emreakcadag.data.entity.tweetlist.TweetViewEntity
 
@@ -19,10 +21,8 @@ class TweetListAdapter(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        with(holder.binding as TweetItemBinding) {
-            tweetList?.getOrNull(position)?.let {
-                text.text = it.text
-            }
+        tweetList?.getOrNull(position)?.let {
+            holder.binding.setVariable(BR.viewModel, it)
         }
     }
 }
