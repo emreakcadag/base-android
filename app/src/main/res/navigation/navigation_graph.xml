@@ -10,12 +10,12 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/splashFragment"
+            app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_tweetListFragment"
             app:destination="@id/tweetListFragment"
-            app:popUpTo="@id/splashFragment"
+            app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -33,7 +33,7 @@
         <action
             android:id="@+id/action_loginFragment_to_tweetListFragment"
             app:destination="@id/tweetListFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -45,5 +45,10 @@
             android:defaultValue="@null"
             app:argType="com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_tweetDetailFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
