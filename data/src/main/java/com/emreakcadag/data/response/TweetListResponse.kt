@@ -8,14 +8,27 @@ import com.google.gson.annotations.SerializedName
  */
 data class TweetListResponse(
     @SerializedName("data") val tweetList: List<TweetModel>?,
-    @SerializedName("meta") val tweetMetaModel: TweetMetaModel?
+    @SerializedName("includes") val tweetIncludes: TweetIncludes?,
+    @SerializedName("meta") val tweetMetaModel: TweetMetaModel?,
 ) : BaseResponse()
 
 data class TweetModel(
     @SerializedName("id") val id: String?,
+    @SerializedName("author_id") val authorId: String?,
     @SerializedName("text") val text: String?,
 )
 
 data class TweetMetaModel(
     @SerializedName("next_token") val nextToken: String?,
+)
+
+data class TweetIncludes(
+    @SerializedName("users") val users: List<UserResponse>?,
+)
+
+data class UserResponse(
+    @SerializedName("id") val id: String?,
+    @SerializedName("profile_image_url") val profileImageUrl: String?,
+    @SerializedName("username") val username: String?,
+    @SerializedName("name") val name: String?,
 )

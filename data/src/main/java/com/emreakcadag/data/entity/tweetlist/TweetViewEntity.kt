@@ -10,4 +10,8 @@ import kotlinx.parcelize.Parcelize
 data class TweetViewEntity(
     val id: String?,
     val text: String?,
+    val authorId: String?,
+    val username: String?,
+    val name: String?,
+    val profileImageUrl: String?,
 ) : Parcelable

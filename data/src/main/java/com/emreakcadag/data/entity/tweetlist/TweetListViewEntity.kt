@@ -17,7 +17,18 @@ data class TweetListViewEntity(
 
         fun TweetListResponse?.fromResponse() = this?.run {
             TweetListViewEntity(
-                tweetList = tweetList?.map { TweetViewEntity(id = it.id, text = it.text) },
+                tweetList = tweetList?.map {
+                    val user = tweetIncludes?.users?.firstOrNull { user -> user.id == it.authorId }
+
+                    TweetViewEntity(
+                        id = it.id,
+                        text = it.text,
+                        authorId = it.authorId,
+                        username = user?.username,
+                        name = user?.name,
+                        profileImageUrl = user?.profileImageUrl,
+                    )
+                },
                 nextToken = tweetMetaModel?.nextToken,
             )
         }
