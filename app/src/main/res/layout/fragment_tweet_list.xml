@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.emreakcadag.baseandroid.feature.tweetlist.TweetListViewModel" />
+            type="com.emreakcadag.baseandroid.feature.tweetlist.ui.TweetListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

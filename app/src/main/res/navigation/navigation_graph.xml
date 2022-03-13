@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/tweetListFragment"
-        android:name="com.emreakcadag.baseandroid.feature.tweetlist.TweetListFragment"
+        android:name="com.emreakcadag.baseandroid.feature.tweetlist.ui.TweetListFragment"
         android:label="TweetListFragment">
         <action
             android:id="@+id/action_tweetListFragment_to_tweetDetailFragment"

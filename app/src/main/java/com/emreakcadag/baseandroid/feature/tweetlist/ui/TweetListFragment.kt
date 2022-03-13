@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.feature.tweetlist
+package com.emreakcadag.baseandroid.feature.tweetlist.ui
 
 import android.os.Bundle
 import android.view.View
