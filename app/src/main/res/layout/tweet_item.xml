@@ -8,11 +8,11 @@
 
         <import type="kotlin.jvm.functions.Function1" />
 
-        <import type="com.emreakcadag.data.entity.tweetlist.TweetViewEntity" />
+        <import type="com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity" />
 
         <variable
             name="viewModel"
-            type="com.emreakcadag.data.entity.tweetlist.TweetViewEntity" />
+            type="com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity" />
 
         <variable
             name="onItemClick"

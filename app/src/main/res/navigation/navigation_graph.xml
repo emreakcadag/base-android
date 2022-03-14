@@ -48,7 +48,7 @@
         <argument
             android:name="tweetDetailViewEntity"
             android:defaultValue="@null"
-            app:argType="com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity"
+            app:argType="com.emreakcadag.data.viewentity.tweetdetail.TweetDetailViewEntity"
             app:nullable="true" />
         <action
             android:id="@+id/action_tweetDetailFragment_to_splashFragment"

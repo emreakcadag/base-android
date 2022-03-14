@@ -1,7 +1,7 @@
 package com.emreakcadag.domain.usecase.tweetdetail
 
+import com.emreakcadag.data.dbentity.TweetDbEntity
 import com.emreakcadag.data.repository.TweetDetailRepository
-import com.emreakcadag.data.response.TweetDetailResponse
 import com.emreakcadag.domain.usecase.base.BaseFlowUseCase
 import javax.inject.Inject
 
@@ -10,7 +10,7 @@ import javax.inject.Inject
  */
 class GetTweetDetailUseCase @Inject constructor(
     private val tweetDetailRepository: TweetDetailRepository,
-) : BaseFlowUseCase<String?, TweetDetailResponse?>() {
+) : BaseFlowUseCase<String?, TweetDbEntity?>() {
 
     override fun onExecute(params: String?) = tweetDetailRepository.getTweetDetail(params)
 }

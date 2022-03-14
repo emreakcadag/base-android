@@ -1,12 +1,13 @@
-package com.emreakcadag.data.datasource
+package com.emreakcadag.data.datasource.tweetdetail
 
 import com.emreakcadag.data.apiservice.TweetDetailApiService
+import com.emreakcadag.data.dao.TweetDao
 import javax.inject.Inject
 
 /**
  * Created by Emre Akçadağ on 13.03.2022
  */
-class TweetDetailDataSource @Inject constructor(
+class TweetDetailRemoteDataSource @Inject constructor(
     private val tweetDetailApiService: TweetDetailApiService,
 ) {
 

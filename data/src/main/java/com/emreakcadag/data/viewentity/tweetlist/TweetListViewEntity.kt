@@ -1,4 +1,4 @@
-package com.emreakcadag.data.entity.tweetlist
+package com.emreakcadag.data.viewentity.tweetlist
 
 import android.os.Parcelable
 import com.emreakcadag.data.response.TweetListResponse

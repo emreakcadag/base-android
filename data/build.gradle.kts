@@ -67,4 +67,8 @@ dependencies {
     implementation(Dependency.retrofit2GsonConverter)
     implementation(Dependency.okhttp3)
     implementation(Dependency.okhttp3LoggingInterceptor)
+
+    implementation(Dependency.roomRuntime)
+    implementation(Dependency.roomKtx)
+    kapt(Dependency.roomCompiler)
 }

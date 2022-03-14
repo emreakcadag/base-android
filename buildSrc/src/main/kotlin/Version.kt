@@ -36,4 +36,6 @@ object Version {
     const val dataStore = "1.0.0"
 
     const val glide = "4.12.0"
+
+    const val room = "2.4.2"
 }

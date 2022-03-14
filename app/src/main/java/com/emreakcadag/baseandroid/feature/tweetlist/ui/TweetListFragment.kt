@@ -8,7 +8,7 @@ import com.emreakcadag.base.extension.setOnPagingListener
 import com.emreakcadag.base.viewBinding
 import com.emreakcadag.baseandroid.R
 import com.emreakcadag.baseandroid.databinding.FragmentTweetListBinding
-import com.emreakcadag.data.entity.tweetdetail.TweetDetailViewEntity
+import com.emreakcadag.data.viewentity.tweetdetail.TweetDetailViewEntity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

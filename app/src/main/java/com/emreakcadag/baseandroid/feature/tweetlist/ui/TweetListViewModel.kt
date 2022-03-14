@@ -7,9 +7,9 @@ import com.emreakcadag.base.SingleLiveData
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfigParameter
 import com.emreakcadag.baseandroid.feature.tweetlist.ui.list.TweetListAdapter
-import com.emreakcadag.data.entity.tweetlist.TweetListViewEntity
-import com.emreakcadag.data.entity.tweetlist.TweetListViewEntity.Companion.fromResponse
-import com.emreakcadag.data.entity.tweetlist.TweetViewEntity
+import com.emreakcadag.data.viewentity.tweetlist.TweetListViewEntity
+import com.emreakcadag.data.viewentity.tweetlist.TweetListViewEntity.Companion.fromResponse
+import com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity
 import com.emreakcadag.domain.usecase.common.LogoutUseCase
 import com.emreakcadag.domain.usecase.tweetlist.GetTweetListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.emreakcadag.base.recyclerview.BaseViewHolder
 import com.emreakcadag.baseandroid.BR
 import com.emreakcadag.baseandroid.databinding.TweetItemBinding
-import com.emreakcadag.data.entity.tweetlist.TweetViewEntity
+import com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity
 
 /**
  * Created by Emre Akçadağ on 13.03.2022
