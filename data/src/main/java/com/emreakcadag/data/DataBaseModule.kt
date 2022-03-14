@@ -22,6 +22,7 @@ object DataBaseModule {
 
     @Provides
     @Singleton
-    fun provideBaseDataStore(@ApplicationContext appContext: Context) =
-        BaseDataStore(PreferenceDataStoreFactory.create(produceFile = { appContext.preferencesDataStoreFile(DATA_STORE_APP) }))
+    fun provideBaseDataStore(@ApplicationContext appContext: Context) = BaseDataStore(
+        PreferenceDataStoreFactory.create(produceFile = { appContext.preferencesDataStoreFile(DATA_STORE_APP) })
+    )
 }

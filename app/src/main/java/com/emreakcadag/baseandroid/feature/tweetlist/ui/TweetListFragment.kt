@@ -33,5 +33,9 @@ class TweetListFragment : BaseFragment(R.layout.fragment_tweet_list) {
                 navigate(TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment(viewEntity))
             }
         }
+
+        viewModel.logoutLiveData.observe(viewLifecycleOwner) {
+            navigate(TweetListFragmentDirections.actionTweetListFragmentToSplashFragment())
+        }
     }
 }

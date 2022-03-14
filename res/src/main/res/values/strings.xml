@@ -5,4 +5,7 @@
     <string name="login">Login</string>
     <string name="tweet_profile">tweet profile</string>
     <string name="logout">Logout</string>
+    <string name="fabdesc">fabDesc</string>
+    <string name="toolbar_image">toolbar_image</string>
+
 </resources>

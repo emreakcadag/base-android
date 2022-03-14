@@ -15,5 +15,4 @@ class DataStoreSetValueUseCase<T> @Inject constructor(
     override fun onExecute(params: Params<T>?) = dataStoreRepository.setValue(params?.key, params?.value)
 
     data class Params<T>(val key: Preferences.Key<T>?, val value: T?)
-
 }

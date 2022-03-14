@@ -8,4 +8,6 @@ enum class RemoteConfigParameter(val key: String) {
     BASE_URL("baseUrl"),
     USERNAME("username"),
     PASSWORD("password"),
+    TOOLBAR_IMAGE_URL("toolbarImageUrl"),
+    TOOLBAR_TITLE("toolbarTitle"),
 }

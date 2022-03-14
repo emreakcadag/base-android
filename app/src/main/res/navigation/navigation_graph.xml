@@ -25,6 +25,11 @@
         <action
             android:id="@+id/action_tweetListFragment_to_tweetDetailFragment"
             app:destination="@id/tweetDetailFragment" />
+        <action
+            android:id="@+id/action_tweetListFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

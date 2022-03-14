@@ -34,7 +34,6 @@ inline fun <reified C, reified T> C.tryCatch(
     noinline finallyBlock: (() -> Unit)? = null
 ): T? = try {
     tryBlock()?.takeUnless { it is Unit }
-
 } catch (e: Exception) {
     logDebug(e.message, "$KEY_TRY_CATCH${C::class.simpleName}", isError = true)
     catchBlock?.invoke(e)?.run {
