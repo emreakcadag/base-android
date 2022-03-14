@@ -9,9 +9,4 @@ import javax.inject.Inject
  */
 class MainRepository @Inject constructor(
     private val mainDataSource: MainDataSource
-) : BaseRepository() {
-
-    fun getMainData() = fetch {
-        mainDataSource.getMainData()
-    }
-}
+) : BaseRepository()

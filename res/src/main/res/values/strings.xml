@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Base Android</string>
+
     <string name="login">Login</string>
     <string name="tweet_profile">tweet profile</string>
     <string name="logout">Logout</string>

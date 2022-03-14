@@ -30,7 +30,7 @@ class TweetListFragment : BaseFragment(R.layout.fragment_tweet_list) {
         viewModel.onItemClickLiveData.observe(viewLifecycleOwner) {
             with(it) {
                 val viewEntity = TweetDetailViewEntity(id, text, authorId, username, name, profileImageUrl)
-                navigate(com.emreakcadag.baseandroid.feature.tweetlist.ui.TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment(viewEntity))
+                navigate(TweetListFragmentDirections.actionTweetListFragmentToTweetDetailFragment(viewEntity))
             }
         }
     }

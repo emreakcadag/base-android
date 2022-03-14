@@ -42,7 +42,7 @@ class TweetListViewModel @Inject constructor(
     fun getTweetListData() {
         getTweetListUseCase.execute(
             GetTweetListUseCase.Params(
-                "elonmusk",
+                "pen",
                 nextToken,
             )
         ).withProgressBar().onSuccess {

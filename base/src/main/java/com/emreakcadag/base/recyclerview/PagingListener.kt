@@ -10,7 +10,7 @@ class PagingListener(private val layoutManager: LinearLayoutManager, val onLoadM
 
     private var previousTotal = 0
     private var loading = true
-    var visibleThreshold = 5
+    var visibleThreshold = 7
     private var currentItemCount = 0
     private var currentPage = 0
 

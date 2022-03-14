@@ -21,7 +21,7 @@ class SplashViewModel @Inject constructor(
     val textObservable = ObservableField<String?>()
 
     override fun onInit() {
-        textObservable.set("SPLASH FRAGMENT")
+        textObservable.set("SPLASH")
     }
 
     fun navigateOnStartUp(onNavigate: (NavDirections) -> Unit) {

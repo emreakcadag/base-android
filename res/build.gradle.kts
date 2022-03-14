@@ -39,4 +39,8 @@ android {
     kotlinOptions {
         jvmTarget = Version.jvmTarget
     }
+
+    dependencies {
+        api(Dependency.androidMaterial)
+    }
 }

@@ -8,7 +8,4 @@ import javax.inject.Inject
  */
 class MainDataSource @Inject constructor(
     private val mainApiService: MainApiService,
-) {
-
-    suspend fun getMainData() = mainApiService.getMainData()
-}
+)

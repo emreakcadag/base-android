@@ -3,6 +3,8 @@ package com.emreakcadag.baseandroid.feature.login.ui
 import androidx.databinding.ObservableField
 import androidx.navigation.NavDirections
 import com.emreakcadag.base.BaseViewModel
+import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
+import com.emreakcadag.base.firebase.remoteconfig.RemoteConfigParameter
 import com.emreakcadag.data.datastore.BaseDataStore
 import com.emreakcadag.domain.usecase.common.DataStoreSetValueUseCase
 import com.emreakcadag.domain.usecase.login.LoginUseCase
@@ -17,10 +19,11 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     private val dataStoreSetValueUseCase: DataStoreSetValueUseCase<String>,
+    remoteConfig: RemoteConfig,
 ) : BaseViewModel() {
 
-    val usernameObservable = ObservableField("X70aslvBC6F2Z2LUISlU3XjFi")
-    val passwordObservable = ObservableField("8lfrGMkONqnTFSRsnBzcnTgc5aPvZP9O4zxndEMKUXFjh03KkD")
+    val usernameObservable = ObservableField(remoteConfig.getString(RemoteConfigParameter.USERNAME))
+    val passwordObservable = ObservableField(remoteConfig.getString(RemoteConfigParameter.PASSWORD))
 
     override fun onInit() {}
 

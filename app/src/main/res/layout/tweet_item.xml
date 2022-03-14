@@ -42,7 +42,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_16dp"
             android:text="@{viewModel.username}"
-            android:textColor="@android:color/holo_blue_dark"
             app:layout_constraintStart_toEndOf="@id/image"
             app:layout_constraintTop_toTopOf="parent" />
 
