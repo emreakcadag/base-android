@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "773627819697",
+    "project_id": "baseandroid-990f0",
+    "storage_bucket": "baseandroid-990f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773627819697:android:80e19772f326c89ed51490",
+        "android_client_info": {
+          "package_name": "com.emreakcadag.baseandroid.dev.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773627819697-a6s1sj2agr6bacg8o00l7d4h5aa6ifcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIynmBAZ4FSOVkEIDE9nrnlPgY9Kgk-ko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773627819697-a6s1sj2agr6bacg8o00l7d4h5aa6ifcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
