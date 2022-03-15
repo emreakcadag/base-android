@@ -1,4 +1,4 @@
-package com.emreakcadag.data.repository
+package com.emreakcadag.data.repository.tweetdetail
 
 import com.emreakcadag.data.base.BaseRepository
 import com.emreakcadag.data.datasource.tweetdetail.TweetDetailLocalDataSource

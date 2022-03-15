@@ -1,10 +1,8 @@
-package com.emreakcadag.data.repository
+package com.emreakcadag.data.repository.datastore
 
 import androidx.datastore.preferences.core.Preferences
-import com.emreakcadag.common.ApiResult
 import com.emreakcadag.data.base.BaseRepository
 import com.emreakcadag.data.datasource.DataStoreDataSource
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**

@@ -2,7 +2,7 @@ package com.emreakcadag.domain.usecase.common
 
 import androidx.datastore.preferences.core.Preferences
 import com.emreakcadag.common.ApiResult
-import com.emreakcadag.data.repository.DataStoreRepository
+import com.emreakcadag.data.repository.datastore.DataStoreRepository
 import com.emreakcadag.domain.usecase.base.BaseFlowUseCase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

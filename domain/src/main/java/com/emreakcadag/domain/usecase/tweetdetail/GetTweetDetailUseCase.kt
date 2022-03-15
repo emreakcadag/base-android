@@ -1,7 +1,7 @@
 package com.emreakcadag.domain.usecase.tweetdetail
 
 import com.emreakcadag.data.dbentity.TweetDbEntity
-import com.emreakcadag.data.repository.TweetDetailRepository
+import com.emreakcadag.data.repository.tweetdetail.TweetDetailRepository
 import com.emreakcadag.domain.usecase.base.BaseFlowUseCase
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.emreakcadag.domain.usecase.login
 
-import com.emreakcadag.data.repository.LoginRepository
+import com.emreakcadag.data.repository.login.LoginRepository
 import com.emreakcadag.data.response.LoginResponse
 import com.emreakcadag.domain.usecase.base.BaseFlowUseCase
 import javax.inject.Inject
