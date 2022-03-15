@@ -1,4 +1,4 @@
-package com.emreakcadag.baseandroid.feature.main.ui
+package com.emreakcadag.baseandroid
 
 import com.emreakcadag.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
