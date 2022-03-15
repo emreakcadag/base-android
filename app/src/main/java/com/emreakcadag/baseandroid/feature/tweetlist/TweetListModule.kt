@@ -3,6 +3,10 @@ package com.emreakcadag.baseandroid.feature.tweetlist
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
 import com.emreakcadag.baseandroid.extension.setBaseUrlAndCreateRetrofit
 import com.emreakcadag.data.apiservice.TweetListApiService
+import com.emreakcadag.data.datasource.TweetListDataSource
+import com.emreakcadag.data.mapper.TweetListMapper
+import com.emreakcadag.data.repository.tweetlist.TweetListRepository
+import com.emreakcadag.data.repository.tweetlist.TweetListRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +28,11 @@ object TweetListModule {
         remoteConfig: RemoteConfig,
     ) = retrofitBuilder
         .setBaseUrlAndCreateRetrofit<TweetListApiService>(remoteConfig)
+
+    @Provides
+    @ViewModelScoped
+    fun provideTweetListRepository(
+        tweetListDataSource: TweetListDataSource,
+        tweetListMapper: TweetListMapper,
+    ): TweetListRepository = TweetListRepositoryImpl(tweetListDataSource, tweetListMapper)
 }

@@ -1,21 +1,13 @@
 package com.emreakcadag.data.repository.tweetlist
 
-import com.emreakcadag.data.base.BaseRepository
-import com.emreakcadag.data.datasource.TweetListDataSource
-import com.emreakcadag.data.mapper.TweetListMapper
-import javax.inject.Inject
+import com.emreakcadag.common.ApiResult
+import com.emreakcadag.data.dbentity.TweetListDbEntity
+import kotlinx.coroutines.flow.Flow
 
 /**
- * Created by Emre Akçadağ on 13.03.2022
+ * Created by Emre Akçadağ on 15.03.2022
  */
-class TweetListRepository @Inject constructor(
-    private val tweetListDataSource: TweetListDataSource,
-    private val mapper: TweetListMapper,
-) : BaseRepository() {
+interface TweetListRepository {
 
-    fun getTweetList(query: String?, nextToken: String?) = fetch {
-        tweetListDataSource.getTweetList(query, nextToken).let {
-            mapper.responseToDbEntity(it)
-        }
-    }
+    fun getTweetList(query: String?, nextToken: String?): Flow<ApiResult.Success<TweetListDbEntity?>>
 }
