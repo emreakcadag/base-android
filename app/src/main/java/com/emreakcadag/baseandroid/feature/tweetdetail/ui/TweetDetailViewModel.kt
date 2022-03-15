@@ -4,8 +4,8 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import com.emreakcadag.base.BaseViewModel
 import com.emreakcadag.base.SingleLiveData
+import com.emreakcadag.data.mapper.TweetDetailMapper
 import com.emreakcadag.data.viewentity.tweetdetail.TweetDetailViewEntity
-import com.emreakcadag.data.viewentity.tweetdetail.TweetDetailViewEntity.Companion.fromDbEntity
 import com.emreakcadag.domain.usecase.common.LogoutUseCase
 import com.emreakcadag.domain.usecase.tweetdetail.GetTweetDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,6 +18,7 @@ import javax.inject.Inject
 class TweetDetailViewModel @Inject constructor(
     private val getTweetDetailUseCase: GetTweetDetailUseCase,
     private val logoutUseCase: LogoutUseCase,
+    private val mapper: TweetDetailMapper,
 ) : BaseViewModel() {
 
     val tweetDetailObservable = ObservableField<TweetDetailViewEntity>()
@@ -31,7 +32,7 @@ class TweetDetailViewModel @Inject constructor(
         // tweetDetailObservable.set(tweetDetailViewEntity)
         getTweetDetailUseCase.execute(tweetDetailViewEntity?.id)
             .onSuccess {
-                tweetDetailObservable.set(it.fromDbEntity())
+                tweetDetailObservable.set(mapper.dbEntityToViewEntity(it))
             }.subscribe()
     }
 

@@ -1,7 +1,6 @@
 package com.emreakcadag.data.viewentity.tweetdetail
 
 import android.os.Parcelable
-import com.emreakcadag.data.dbentity.TweetDbEntity
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -15,19 +14,4 @@ data class TweetDetailViewEntity(
     val username: String?,
     val name: String?,
     val profileImageUrl: String?,
-) : Parcelable {
-
-    companion object {
-
-        fun TweetDbEntity?.fromDbEntity() = this?.run {
-            TweetDetailViewEntity(
-                id = id,
-                text = text,
-                authorId = authorId,
-                username = username,
-                name = name,
-                profileImageUrl = profileImageUrl,
-            )
-        }
-    }
-}
+) : Parcelable

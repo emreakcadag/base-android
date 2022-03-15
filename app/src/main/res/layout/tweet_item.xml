@@ -8,15 +8,15 @@
 
         <import type="kotlin.jvm.functions.Function1" />
 
-        <import type="com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity" />
+        <import type="com.emreakcadag.data.viewentity.tweetlist.TweetItemViewEntity" />
 
         <variable
             name="viewModel"
-            type="com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity" />
+            type="com.emreakcadag.data.viewentity.tweetlist.TweetItemViewEntity" />
 
         <variable
             name="onItemClick"
-            type="Function1&lt;TweetViewEntity, Unit>" />
+            type="Function1&lt;TweetItemViewEntity, Unit>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

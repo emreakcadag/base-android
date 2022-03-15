@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.ListAdapter
 import com.emreakcadag.base.recyclerview.BaseViewHolder
 import com.emreakcadag.baseandroid.BR
 import com.emreakcadag.baseandroid.databinding.TweetItemBinding
-import com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity
+import com.emreakcadag.data.viewentity.tweetlist.TweetItemViewEntity
 
 /**
  * Created by Emre Akçadağ on 13.03.2022
  */
-class TweetListAdapter(private val onItemClick: ((TweetViewEntity) -> Unit)? = null) : ListAdapter<TweetViewEntity, BaseViewHolder>(TweetDiffCallback) {
+class TweetListAdapter(private val onItemClick: ((TweetItemViewEntity) -> Unit)? = null) : ListAdapter<TweetItemViewEntity, BaseViewHolder>(TweetDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = BaseViewHolder.create(parent, TweetItemBinding::inflate)
 
@@ -23,10 +23,10 @@ class TweetListAdapter(private val onItemClick: ((TweetViewEntity) -> Unit)? = n
         }
     }
 
-    object TweetDiffCallback : DiffUtil.ItemCallback<TweetViewEntity>() {
+    object TweetDiffCallback : DiffUtil.ItemCallback<TweetItemViewEntity>() {
 
-        override fun areItemsTheSame(oldItem: TweetViewEntity, newItem: TweetViewEntity) = oldItem == newItem
+        override fun areItemsTheSame(oldItem: TweetItemViewEntity, newItem: TweetItemViewEntity) = oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: TweetViewEntity, newItem: TweetViewEntity) = oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: TweetItemViewEntity, newItem: TweetItemViewEntity) = oldItem.id == newItem.id
     }
 }

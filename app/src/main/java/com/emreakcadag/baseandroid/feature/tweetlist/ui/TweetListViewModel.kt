@@ -7,9 +7,9 @@ import com.emreakcadag.base.SingleLiveData
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfigParameter
 import com.emreakcadag.baseandroid.feature.tweetlist.ui.list.TweetListAdapter
+import com.emreakcadag.data.mapper.TweetListMapper
+import com.emreakcadag.data.viewentity.tweetlist.TweetItemViewEntity
 import com.emreakcadag.data.viewentity.tweetlist.TweetListViewEntity
-import com.emreakcadag.data.viewentity.tweetlist.TweetListViewEntity.Companion.fromResponse
-import com.emreakcadag.data.viewentity.tweetlist.TweetViewEntity
 import com.emreakcadag.domain.usecase.common.LogoutUseCase
 import com.emreakcadag.domain.usecase.tweetlist.GetTweetListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,6 +23,7 @@ import javax.inject.Inject
 class TweetListViewModel @Inject constructor(
     private val getTweetListUseCase: GetTweetListUseCase,
     private val logoutUseCase: LogoutUseCase,
+    private val mapper: TweetListMapper,
     remoteConfig: RemoteConfig,
 ) : BaseViewModel() {
 
@@ -37,10 +38,10 @@ class TweetListViewModel @Inject constructor(
     }
 
     private var nextToken: String? = null
-    private val tweetList: ArrayList<TweetViewEntity> = arrayListOf()
+    private val tweetItemList: ArrayList<TweetItemViewEntity> = arrayListOf()
 
-    private val _onItemClickLiveData = SingleLiveData<TweetViewEntity>()
-    val onItemClickLiveData: LiveData<TweetViewEntity> = _onItemClickLiveData
+    private val _onItemClickLiveData = SingleLiveData<TweetItemViewEntity>()
+    val onItemClickLiveData: LiveData<TweetItemViewEntity> = _onItemClickLiveData
 
     private val _logoutLiveData = SingleLiveData<Unit>()
     val logoutLiveData: LiveData<Unit> = _logoutLiveData
@@ -56,7 +57,7 @@ class TweetListViewModel @Inject constructor(
                 nextToken,
             )
         ).withProgressBar().onSuccess {
-            it.fromResponse()?.let { viewEntity ->
+            mapper.dbEntityToViewEntity(it)?.let { viewEntity ->
                 setTweetListAdapter(viewEntity)
                 nextToken = viewEntity.nextToken
             }
@@ -64,8 +65,8 @@ class TweetListViewModel @Inject constructor(
     }
 
     private fun setTweetListAdapter(tweetListViewEntity: TweetListViewEntity?) {
-        tweetListViewEntity?.tweetList?.let { tweetList.addAll(it) }
-        tweetListAdapter.submitList(tweetList.toImmutableList())
+        tweetListViewEntity?.tweetItemList?.let { tweetItemList.addAll(it) }
+        tweetListAdapter.submitList(tweetItemList.toImmutableList())
     }
 
     fun onLogoutClick() {
