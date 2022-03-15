@@ -1,22 +1,15 @@
 package com.emreakcadag.data.repository.datastore
 
 import androidx.datastore.preferences.core.Preferences
-import com.emreakcadag.data.base.BaseRepository
-import com.emreakcadag.data.datasource.DataStoreDataSource
-import javax.inject.Inject
+import com.emreakcadag.common.ApiResult
+import kotlinx.coroutines.flow.Flow
 
 /**
- * Created by Emre Akçadağ on 13.03.2022
+ * Created by Emre Akçadağ on 15.03.2022
  */
-class DataStoreRepository @Inject constructor(
-    private val dataStoreDataSource: DataStoreDataSource,
-) : BaseRepository() {
+interface DataStoreRepository {
 
-    fun <T> setValue(key: Preferences.Key<T>?, value: T?) = fetch {
-        dataStoreDataSource.setValue(key, value)
-    }
+    fun <T> getValue(key: Preferences.Key<T>?): Flow<ApiResult.Success<T?>>
 
-    fun <T> getValue(key: Preferences.Key<T>?) = fetch {
-        dataStoreDataSource.getValue(key)
-    }
+    fun <T> setValue(key: Preferences.Key<T>?, value: T?): Flow<ApiResult.Success<Unit?>>
 }

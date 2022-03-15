@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
+import com.emreakcadag.data.datasource.DataStoreDataSource
 import com.emreakcadag.data.datastore.BaseDataStore
+import com.emreakcadag.data.repository.datastore.DataStoreRepository
+import com.emreakcadag.data.repository.datastore.DataStoreRepositoryImpl
 import com.emreakcadag.data.room.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -38,4 +41,8 @@ object DataModule {
     @Provides
     @Singleton
     fun provideTweetDao(appDatabase: AppDatabase) = appDatabase.tweetDao()
+
+    @Provides
+    @Singleton
+    fun provideDataStoreRepository(dataStoreDataSource: DataStoreDataSource): DataStoreRepository = DataStoreRepositoryImpl(dataStoreDataSource)
 }
