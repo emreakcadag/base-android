@@ -25,7 +25,6 @@ object Dependency {
     const val daggerHiltAndroid = "com.google.dagger:hilt-android:${Version.hilt}"
     const val daggerHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
 
-
     const val firebaseBom = "com.google.firebase:firebase-bom:${Version.firebaseBom}"
     const val firebaseConfig = "com.google.firebase:firebase-config-ktx"
     const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
@@ -33,4 +32,14 @@ object Dependency {
 
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
     const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
+
+    const val androidxDataStore = "androidx.datastore:datastore:${Version.dataStore}"
+    const val androidxDataStorePreferences = "androidx.datastore:datastore-preferences:${Version.dataStore}"
+
+    const val glide = "com.github.bumptech.glide:glide:${Version.glide}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Version.glide}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Version.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
 }

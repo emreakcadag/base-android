@@ -50,7 +50,6 @@ kapt {
 
 dependencies {
     implementation(project(ProjectModule.DATA.path))
-    implementation(project(ProjectModule.NETWORK.path))
     implementation(project(ProjectModule.COMMON.path))
 
     implementation(Dependency.androidxCoreKtx)

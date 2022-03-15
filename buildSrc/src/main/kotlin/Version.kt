@@ -28,10 +28,14 @@ object Version {
     const val okhttp3 = "5.0.0-alpha.2"
 
     const val hilt = "2.41"
-    const val androidxHiltCompiler = "1.0.0"
-    const val androidxHiltLifecycleViewModel = "1.0.0-alpha03"
 
     const val firebaseBom = "29.1.0"
 
-    const val navigation = "2.4.1"
+    const val navigation = "2.5.0-alpha03"
+
+    const val dataStore = "1.0.0"
+
+    const val glide = "4.12.0"
+
+    const val room = "2.4.2"
 }

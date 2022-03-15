@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
+    id("kotlin-parcelize")
     kotlin("kapt")
 }
 
@@ -58,4 +59,16 @@ dependencies {
 
     implementation(Dependency.daggerHiltAndroid)
     kapt(Dependency.daggerHiltAndroidCompiler)
+
+    api(Dependency.androidxDataStore)
+    api(Dependency.androidxDataStorePreferences)
+
+    api(Dependency.retrofit2)
+    implementation(Dependency.retrofit2GsonConverter)
+    implementation(Dependency.okhttp3)
+    implementation(Dependency.okhttp3LoggingInterceptor)
+
+    implementation(Dependency.roomRuntime)
+    implementation(Dependency.roomKtx)
+    kapt(Dependency.roomCompiler)
 }

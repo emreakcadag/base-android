@@ -1,6 +1,6 @@
 package com.emreakcadag.base.firebase.remoteconfig
 
-import com.emreakcadag.base.Constant.Companion.BLANK
+import com.emreakcadag.common.Constant.BLANK
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -28,6 +28,11 @@ class RemoteConfigImpl : RemoteConfig {
     override
     fun getString(key: String?): String = key?.run {
         instance.getString(this)
+    } ?: BLANK
+
+    override
+    fun getString(key: RemoteConfigParameter?): String = key?.run {
+        instance.getString(this.key)
     } ?: BLANK
 
     override

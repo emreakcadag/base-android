@@ -11,13 +11,13 @@ import kotlinx.coroutines.flow.*
 /**
  * Created by Emre Akçadağ on 28.02.2022
  */
-abstract class BaseFlowUseCase<in Param, Result>(
+abstract class BaseFlowUseCase<in Params, Result>(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
 
-    protected abstract fun onExecute(param: Param?): Flow<ApiResult<Result>>
+    protected abstract fun onExecute(params: Params?): Flow<ApiResult<Result>>
 
-    fun execute(param: Param? = null) = onExecute(param)
+    fun execute(params: Params? = null) = onExecute(params)
         .onStart {
             emit(ApiResult.Loading)
         }

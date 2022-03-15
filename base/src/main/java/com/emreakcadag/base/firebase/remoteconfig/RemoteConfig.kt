@@ -9,6 +9,8 @@ interface RemoteConfig {
 
     fun getString(key: String?): String
 
+    fun getString(key: RemoteConfigParameter?): String
+
     fun getInt(key: String?): Long?
 
     fun getDouble(key: String?): Double?
