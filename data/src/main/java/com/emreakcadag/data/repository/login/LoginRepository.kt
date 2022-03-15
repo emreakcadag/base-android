@@ -1,17 +1,13 @@
 package com.emreakcadag.data.repository.login
 
-import com.emreakcadag.data.base.BaseRepository
-import com.emreakcadag.data.datasource.LoginDataSource
-import javax.inject.Inject
+import com.emreakcadag.common.ApiResult
+import com.emreakcadag.data.response.LoginResponse
+import kotlinx.coroutines.flow.Flow
 
 /**
- * Created by Emre Akçadağ on 13.03.2022
+ * Created by Emre Akçadağ on 15.03.2022
  */
-class LoginRepository @Inject constructor(
-    private val loginDataSource: LoginDataSource,
-) : BaseRepository() {
+interface LoginRepository {
 
-    fun login(authorization: String?, grantType: String?) = fetch {
-        loginDataSource.login(authorization, grantType)
-    }
+    fun login(authorization: String?, grantType: String?): Flow<ApiResult.Success<LoginResponse?>>
 }

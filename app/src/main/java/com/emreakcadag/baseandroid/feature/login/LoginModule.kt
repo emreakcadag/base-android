@@ -3,6 +3,9 @@ package com.emreakcadag.baseandroid.feature.login
 import com.emreakcadag.base.firebase.remoteconfig.RemoteConfig
 import com.emreakcadag.baseandroid.extension.setBaseUrlAndCreateRetrofit
 import com.emreakcadag.data.apiservice.LoginApiService
+import com.emreakcadag.data.datasource.LoginDataSource
+import com.emreakcadag.data.repository.login.LoginRepository
+import com.emreakcadag.data.repository.login.LoginRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +27,10 @@ object LoginModule {
         remoteConfig: RemoteConfig,
     ) = retrofitBuilder
         .setBaseUrlAndCreateRetrofit<LoginApiService>(remoteConfig)
+
+    @Provides
+    @ViewModelScoped
+    fun provideLoginRepository(
+        loginDataSource: LoginDataSource
+    ): LoginRepository = LoginRepositoryImpl(loginDataSource)
 }
